@@ -68,3 +68,4 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 !.env.sample
+!src/components/mdbr.tgz
