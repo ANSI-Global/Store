@@ -53,6 +53,7 @@ typings/
 
 # dotenv environment variable files
 .env*
+!.env.sample
 
 # gatsby files
 .cache/
@@ -67,5 +68,6 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-!.env.sample
+
+# mdbr
 !src/components/mdbr.tgz
