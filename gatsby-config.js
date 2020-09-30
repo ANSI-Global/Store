@@ -56,7 +56,7 @@ module.exports = {
         // This is the field under which it's accessible
         fieldName: "server",
         // URL to query from
-        url: "http://localhost:8080/graphql",
+        url: "https://ansi.herokuapp.com/graphql",// http://localhost:8080/graphql
       },
     },
   ],
