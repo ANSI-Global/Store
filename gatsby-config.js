@@ -56,7 +56,27 @@ module.exports = {
         // This is the field under which it's accessible
         fieldName: "server",
         // URL to query from
-        url: "https://ansi.herokuapp.com/graphql",// http://localhost:8080/graphql
+        url: "https://ansi.herokuapp.com/graphql", // http://localhost:8080/graphql
+      },
+    },
+    {
+      resolve: `gatsby-source-faunadb`,
+      options: {
+        // The secret for the key you're using to connect to your Fauna database.
+        // You can generate on of these in the "Security" tab of your Fauna Console.
+        secret: process.env.FAUNADB_KEY,
+        // The name of the index you want to query
+        // You can create an index in the "Indexes" tab of your Fauna Console.
+        index: `allOrders`,
+        // If your index requires arguments, you can specify them like this.
+        // You can omit this property if your index doesn't need any.
+        arguments: ["orders"],
+        // This is the name under which your data will appear in Gatsby GraphQL queries
+        // The following will create queries called `allBird` and `bird`.
+        type: "order",
+        // If you need to limit the number of documents returned, you can specify a
+        // maximum number to read.
+        size: 100,
       },
     },
   ],

@@ -15,6 +15,7 @@
     "gatsby-plugin-sass": "^2.3.13",
     "gatsby-plugin-sharp": "^2.6.36",
     "gatsby-plugin-sitemap": "^2.4.13",
+    "gatsby-source-faunadb": "^1.0.0",
     "gatsby-source-filesystem": "^2.3.30",
     "gatsby-source-graphql": "^2.7.4",
     "gatsby-transformer-sharp": "^2.5.15",
@@ -26,6 +27,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "prettier": "2.1.1"
   },
   "keywords": [
