@@ -14,6 +14,7 @@ import {
 } from "mdbreact"
 import React, { useState } from "react"
 import UserIcon from "./components/userIcon"
+import "./style.sass"
 
 const NavbarPage = () => {
   const [collapseID, setCllapseID] = useState(false)
@@ -48,11 +49,18 @@ const NavbarPage = () => {
               </MDBDropdownToggle>
               <MDBDropdownMenu className="dropdown-default" right>
                 <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
               </MDBDropdownMenu>
             </MDBDropdown>
+          </MDBNavItem>
+          <MDBNavItem>
+            <form className="form-inline active-pink-3 active-pink-4 mw-200 nav-link">
+              <input
+                className="form-control form-control-sm ml-3 w-75"
+                type="text"
+                placeholder="Search"
+                aria-label="Search"
+              />
+            </form>
           </MDBNavItem>
         </MDBNavbarNav>
         <MDBNavbarNav right>
