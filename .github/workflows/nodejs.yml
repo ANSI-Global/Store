@@ -15,10 +15,11 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x,14.x]
+        node-version: [12.x, 14.x]
 
     env:
       FIREBASE_CONFIG_PRIVATE_KEY: ${{ secrets.FIREBASE_CONFIG_PRIVATE_KEY }}
+      FAUNADB_KEY: ${{ secrets.FAUNADB_KEY }}
 
     steps:
       - uses: actions/checkout@v2

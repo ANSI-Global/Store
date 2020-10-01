@@ -17,6 +17,7 @@ jobs:
         node-version: [14.x]
 
     env:
+      FAUNADB_KEY: ${{ secrets.FAUNADB_KEY }}
       FIREBASE_CONFIG_PRIVATE_KEY: ${{ secrets.FIREBASE_CONFIG_PRIVATE_KEY }}
 
     steps:
