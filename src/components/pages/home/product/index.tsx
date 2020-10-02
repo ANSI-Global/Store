@@ -1,7 +1,10 @@
-import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
+import { MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
+import Stars from "./components/stars"
 import Image from "./image"
-import Stars from "./stars"
+import QA from "./qa"
+import Reviews from "./rewievs"
+import Variants from "./variant"
 
 const Product = () => (
   <MDBContainer fluid>
@@ -37,32 +40,33 @@ const Product = () => (
           <li>It's strong and sturdy</li>
         </ul>
         <br />
-        Similar Items
-        <ul>
-          <li>This is a product</li>
-          <li>It's color is Blue</li>
-          <li>It's size is xl</li>
-          <li>It's strong and sturdy</li>
-        </ul>
-        <br />
-        Variations
-        <ul>
-          <li>This is a product</li>
-          <li>It's color is Blue</li>
-          <li>It's size is xl</li>
-          <li>It's strong and sturdy</li>
-        </ul>
-        <br />
-        <MDBRow>
-          <MDBCol>Reviews</MDBCol>
-          <MDBCol>Questions and anwsers</MDBCol>
-        </MDBRow>
-        <br />
         <a href="https://www.amazon.com/BENGOO-G9000-Controller-Cancelling-Headphones/dp/B01H6GUCCQ?pd_rd_w=oMM0v&pf_rd_p=1f552c7a-1af2-4608-bc6f-ba06ca3c43ac&pf_rd_r=S91YZAD37R6Q3KDKJH48&pd_rd_r=c8687d70-d273-4ad7-a509-3067fb0b5ddb&pd_rd_wg=KqVgq">
           Example site
         </a>
       </MDBCol>
-      <MDBCol size="3">Purchase</MDBCol>
+      <MDBCol size="3">
+        Purchase
+        <MDBIcon icon="cart" />
+        <MDBBtn>Add to cart</MDBBtn>
+        <MDBBtn>BuyNow</MDBBtn>
+      </MDBCol>
+    </MDBRow>
+    <br />
+    Similar Items
+    <Variants />
+    <br />
+    Variations
+    <Variants />
+    <br />
+    <MDBRow>
+      <MDBCol>
+        Reviews
+        <Reviews />
+      </MDBCol>
+      <MDBCol>
+        Questions and anwsers
+        <QA />
+      </MDBCol>
     </MDBRow>
   </MDBContainer>
 )

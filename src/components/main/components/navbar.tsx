@@ -28,18 +28,18 @@ const NavbarPage = () => {
       <MDBCollapse id="navbarCollapse3" isOpen={collapseID} navbar>
         <MDBNavbarNav left>
           <MDBNavItem active>
-            <Link to="#!" className="nav-link">
+            <Link to="/" className="nav-link">
               Home
             </Link>
           </MDBNavItem>
           <MDBNavItem>
-            <Link to="#!" className="nav-link">
-              Features
+            <Link to="/products" className="nav-link">
+              Products
             </Link>
           </MDBNavItem>
           <MDBNavItem>
-            <Link to="#!" className="nav-link">
-              Pricing
+            <Link to="/products" className="nav-link">
+              Products
             </Link>
           </MDBNavItem>
           <MDBNavItem>

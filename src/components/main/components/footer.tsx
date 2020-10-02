@@ -6,7 +6,7 @@ const FooterPagePro = () => (
     <MDBContainer className="text-center text-md-left">
       <MDBRow className="text-center text-md-left mt-3 pb-3">
         <MDBCol md="3" lg="3" xl="3" className="mx-auto mt-3">
-          <h6 className="text-uppercase mb-4 font-weight-bold">Company name</h6>
+          <h6 className="text-uppercase mb-4 font-weight-bold">ANSI Global</h6>
           <p>
             Here you can use rows and columns here to organize your footer
             content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -16,13 +16,13 @@ const FooterPagePro = () => (
         <MDBCol md="2" lg="2" xl="2" className="mx-auto mt-3">
           <h6 className="text-uppercase mb-4 font-weight-bold">Products</h6>
           <p>
-            <a href="#!">MDBootstrap</a>
+            <a href="#!">Store</a>
           </p>
           <p>
-            <a href="#!">MDWordPress</a>
+            <a href="#!">Services</a>
           </p>
           <p>
-            <a href="#!">BrandFlow</a>
+            <a href="#!">Homepage</a>
           </p>
           <p>
             <a href="#!">Bootstrap Angular</a>
@@ -48,16 +48,15 @@ const FooterPagePro = () => (
         <MDBCol md="4" lg="3" xl="3" className="mx-auto mt-3">
           <h6 className="text-uppercase mb-4 font-weight-bold">Contact</h6>
           <p>
-            <i className="fa fa-home mr-3" /> New York, NY 10012, US
+            <i className="fa fa-home mr-3" />
+            ANSI Global (Pvt) Ltd, 115/8, Mattegoda Terrace, Mattegoda, 10240
+            Sri Lanka.
           </p>
           <p>
-            <i className="fa fa-envelope mr-3" /> info@gmail.com
+            <i className="fa fa-envelope mr-3" /> ansi@ansiglobal.com
           </p>
           <p>
-            <i className="fa fa-phone mr-3" /> + 01 234 567 88
-          </p>
-          <p>
-            <i className="fa fa-print mr-3" /> + 01 234 567 89
+            <i className="fa fa-phone mr-3" /> +94 11 278 3615
           </p>
         </MDBCol>
       </MDBRow>

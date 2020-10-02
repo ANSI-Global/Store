@@ -3,10 +3,10 @@ if (!process.env.GITHUB_ACTION) {
 }
 module.exports = {
   siteMetadata: {
-    title: `Cezerin`,
-    description: `Cezerin is a react eCommerce platform.`,
+    title: `ansi`,
+    description: `ANSIGlobal is a react eCommerce platform.`,
     author: `@himadu`,
-    siteUrl: `https://www.google.com`,
+    siteUrl: `https://store.ansiglobal.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -22,8 +22,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `ansi-store`,
+        short_name: `ansi`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
