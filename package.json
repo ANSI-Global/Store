@@ -29,14 +29,14 @@
   },
   "keywords": [
     "ansi",
+    "ansi-global",
+    "store",
     "gatsby"
   ],
   "license": "GPL-3.0-or-later",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "yarn develop",
+    "start": "gatsby develop",
     "server": "deno run --allow-net server/mod.ts",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
