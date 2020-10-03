@@ -1,19 +1,26 @@
 import { MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
+import SEO from "../../../main/seo"
 import Stars from "./components/stars"
 import Image from "./image"
 import QA from "./qa"
 import Reviews from "./rewievs"
 import Variants from "./variant"
 
-const Product = () => (
+interface props {
+  path?: string
+  id?: string
+}
+
+const Product = ({ id }: props) => (
   <MDBContainer fluid>
+    <SEO title={`Product ${id}`} />
     <MDBRow>
       <MDBCol size="4">
         <Image />
       </MDBCol>
       <MDBCol size="5">
-        Title
+        Title and your ID is: {id}
         <br />
         <MDBRow>
           <MDBCol size="3">
