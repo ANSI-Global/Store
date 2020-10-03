@@ -62,6 +62,7 @@ module.exports = {
         url: "https://ansi.herokuapp.com/graphql", // http://localhost:8080/graphql
       },
     },
+    // FaunaDB Connection
     {
       resolve: "gatsby-source-graphql",
       options: {
@@ -73,26 +74,28 @@ module.exports = {
         },
       },
     },
+    // Redux
     {
       resolve: `gatsby-plugin-react-redux`,
       options: {
-        // [required] - path to your createStore module
         pathToCreateStoreModule: "./src/state/createStore",
-        // [optional] - options passed to `serialize-javascript`
-        // info: https://github.com/yahoo/serialize-javascript#options
-        // will be merged with these defaults:
-        serialize: {
-          space: 0,
-          // if `isJSON` is set to `false`, `eval` is used to deserialize redux state,
-          // otherwise `JSON.parse` is used
-          isJSON: true,
-          unsafe: false,
-          ignoreFunction: true,
+      },
+    }, // Firebase connection
+    {
+      resolve: "gatsby-theme-firebase",
+      options: {
+        credentials: {
+          apiKey: "AIzaSyAgkfWxahbDS8goMk1dnvpeCEpFqUrZvoo",
+          authDomain: "ansi-68e9a.firebaseapp.com",
+          databaseURL: "https://ansi-68e9a.firebaseio.com",
+          projectId: "ansi-68e9a",
+          storageBucket: "ansi-68e9a.appspot.com",
+          messagingSenderId: "597113660855",
+          appId: "1:597113660855:web:52ff5ab6391e13e2717432",
+          measurementId: "G-H9B39JD4S2",
         },
-        // [optional] - if true will clean up after itself on the client, default:
-        cleanupOnClient: true,
-        // [optional] - name of key on `window` where serialized state will be stored, default:
-        windowKey: "__PRELOADED_STATE__",
+        loginPath: "/user/login",
+        socialLogins: ["google", "github"],
       },
     },
   ],

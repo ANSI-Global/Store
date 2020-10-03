@@ -38,8 +38,8 @@ const NavbarPage = () => {
             </Link>
           </MDBNavItem>
           <MDBNavItem>
-            <Link to="/products" className="nav-link">
-              Products
+            <Link to="/product/500" className="nav-link">
+              Product
             </Link>
           </MDBNavItem>
           <MDBNavItem>
@@ -64,6 +64,11 @@ const NavbarPage = () => {
           </MDBNavItem>
         </MDBNavbarNav>
         <MDBNavbarNav right>
+          <MDBNavItem>
+            <Link to="/user/login" className="nav-link">
+              Login
+            </Link>
+          </MDBNavItem>
           <MDBNavItem>
             <Link
               className="waves-effect waves-light d-flex align-items-center nav-link"
