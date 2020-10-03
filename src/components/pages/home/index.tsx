@@ -1,21 +1,15 @@
 import { MDBContainer } from "mdbreact"
 import React from "react"
 import Carousel from "./carousel"
+import MainCaousel from "./mainCarousel"
 import ProductList from "./productList"
-
-const Test = () => {
-  return (
-    <>
-      <Carousel />
-      <ProductList />
-    </>
-  )
-}
 
 const HomePage = () => (
   <>
-    <MDBContainer>
-      <Test />
+    <MDBContainer fluid>
+      <MainCaousel />
+      <Carousel />
+      <ProductList />
     </MDBContainer>
   </>
 )
