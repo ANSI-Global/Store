@@ -29,7 +29,7 @@ const Product = ({ id }: props) => {
           <br />
           <MDBRow>
             <MDBCol size="3">
-              <Stars rating={2} />
+              <Stars rating={5} />
             </MDBCol>
             <MDBCol>40,000 ratings</MDBCol>
           </MDBRow>
