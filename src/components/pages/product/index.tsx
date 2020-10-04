@@ -3,6 +3,7 @@ import { MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
 import SEO from "../../main/seo"
 import Stars from "./components/stars"
+import UserRatings from "./components/userRating"
 import Image from "./image"
 import QA from "./qa"
 import Reviews from "./reviews"
@@ -28,10 +29,20 @@ const Product = ({ id }: props) => {
           {profile && <p>Hello {profile.displayName}</p>}
           <br />
           <MDBRow>
-            <MDBCol size="3">
+            <MDBCol size="2">
               <Stars rating={5} />
             </MDBCol>
-            <MDBCol>40,000 ratings</MDBCol>
+            <MDBCol size="6">
+              <MDBContainer fluid>
+                <MDBRow>
+                  <MDBCol>Your rating: </MDBCol>
+                  <MDBCol>
+                    <UserRatings />
+                  </MDBCol>
+                </MDBRow>
+              </MDBContainer>
+            </MDBCol>
+            <MDBCol size="4">40,000 ratings</MDBCol>
           </MDBRow>
           <hr className="px-1" />
           Rs.400/=

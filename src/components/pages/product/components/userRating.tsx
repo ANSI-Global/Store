@@ -2,30 +2,45 @@ import { MDBIcon } from "mdbreact"
 import React, { useState } from "react"
 
 interface props {
-  rating?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+  rating?: 0 | 1 | 2 | 3 | 4 | 5
 }
 
 const Stars = (props: props) => {
   const { rating = 0 } = props
   const [stars, setStars] = useState(rating)
 
-  const ifStars = (value?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10) => {
+  const ifStars = (value?: 0 | 1 | 2 | 3 | 4 | 5) => {
     if (true) {
       // check if user logged
-      setStars(value)
+      // send the rating to server with uid
+    } else {
+      // else send the rating to server with guest status
     }
   }
 
   return (
     <>
-      Your rating:
       <ul className="rating">
         <li>{stars <= 0 && null}</li>
+        <li>
+          {stars >= 1 ? (
+            <MDBIcon icon="star" onClick={() => setStars(1)} />
+          ) : (
+            <MDBIcon far icon="star" onClick={() => setStars(1)} />
+          )}
+        </li>
         <li>
           {stars >= 2 ? (
             <MDBIcon icon="star" onClick={() => setStars(2)} />
           ) : (
             <MDBIcon far icon="star" onClick={() => setStars(2)} />
+          )}
+        </li>
+        <li>
+          {stars >= 3 ? (
+            <MDBIcon icon="star" onClick={() => setStars(3)} />
+          ) : (
+            <MDBIcon far icon="star" onClick={() => setStars(3)} />
           )}
         </li>
         <li>
@@ -36,29 +51,10 @@ const Stars = (props: props) => {
           )}
         </li>
         <li>
-          {stars >= 6 ? (
-            <MDBIcon icon="star" onClick={() => setStars(6)} />
+          {stars >= 5 ? (
+            <MDBIcon icon="star" onClick={() => setStars(5)} />
           ) : (
-            <MDBIcon far icon="star" onClick={() => setStars(6)} />
-          )}
-        </li>
-        <li>
-          {stars >= 8 ? (
-            <MDBIcon icon="star" onClick={() => setStars(8)} />
-          ) : (
-            <MDBIcon far icon="star" onClick={() => setStars(8)} />
-          )}
-        </li>
-        <li>
-          {stars >= 10 ? (
-            <MDBIcon icon="star" onClick={() => setStars(10)} />
-          ) : (
-            <MDBIcon far icon="star" onClick={() => setStars(10)} />
-          )}
-        </li>
-        <li>
-          {Math.abs(stars % 2) == 1 && (
-            <MDBIcon icon="star-half" onClick={() => setStars(2)} />
+            <MDBIcon far icon="star" onClick={() => setStars(5)} />
           )}
         </li>
       </ul>
