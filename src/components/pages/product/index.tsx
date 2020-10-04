@@ -1,12 +1,11 @@
 import { useAuth } from "gatsby-theme-firebase"
 import { MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
-import SEO from "../../../main/seo"
+import SEO from "../../main/seo"
 import Stars from "./components/stars"
 import Image from "./image"
-import Paypal from "./paypal"
 import QA from "./qa"
-import Reviews from "./rewievs"
+import Reviews from "./reviews"
 import Variants from "./variant"
 
 interface props {
@@ -27,8 +26,6 @@ const Product = ({ id }: props) => {
           Title and your ID is: {id}
           Your profile: {isLoading && <p>Loading..</p>}
           {profile && <p>Hello {profile.displayName}</p>}
-          Paypal example,
-          <Paypal />
           <br />
           <MDBRow>
             <MDBCol size="3">

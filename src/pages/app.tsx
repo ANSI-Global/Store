@@ -2,7 +2,7 @@
 import { Router } from "@reach/router"
 import React from "react"
 import Layout from "../components/main/layout"
-import Product from "../components/pages/home/product"
+import Product from "../components/pages/product"
 
 const RoutePage = () => (
   <Layout>
