@@ -103,7 +103,7 @@ const barChartOptions = {
   },
 }
 
-const DV6 = () => {
+const DV6 = ({ path }) => {
   const data = useStaticQuery(graphql`
     {
       server {
