@@ -1,4 +1,3 @@
-import { useAuth } from "gatsby-theme-firebase"
 import { MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
 import SEO from "../../main/seo"
@@ -15,7 +14,6 @@ interface props {
 }
 
 const Product = ({ id }: props) => {
-  const { profile, isLoading } = useAuth()
   return (
     <MDBContainer fluid>
       <SEO title={`Product ${id}`} />
@@ -25,8 +23,6 @@ const Product = ({ id }: props) => {
         </MDBCol>
         <MDBCol size="5">
           Title and your ID is: {id}
-          Your profile: {isLoading && <p>Loading..</p>}
-          {profile && <p>Hello {profile.displayName}</p>}
           <br />
           <MDBRow>
             <MDBCol size="2">

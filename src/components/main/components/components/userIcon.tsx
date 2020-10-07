@@ -1,4 +1,5 @@
-import { Link } from "gatsby"
+import { navigate } from "gatsby"
+import { auth, useAuth } from "gatsby-theme-firebase"
 import {
   MDBDropdown,
   MDBDropdownItem,
@@ -6,44 +7,37 @@ import {
   MDBDropdownToggle,
   MDBIcon,
 } from "mdbreact"
-import React, { useState } from "react"
+import React from "react"
 
 const UserIcon = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true)
+  const { isLoading, isLoggedIn, profile } = useAuth()
 
-  function logOut() {
-    setIsLoggedIn(false)
-  }
-
-  if (isLoggedIn) {
-    return (
-      <MDBDropdown>
-        <MDBDropdownToggle className="dopdown-toggle" nav>
+  return (
+    <MDBDropdown>
+      <MDBDropdownToggle className="dopdown-toggle" nav>
+        {isLoggedIn && profile.photoURL ? (
           <img
-            src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
+            src={profile.photoURL}
             className="rounded-circle z-depth-0"
             style={{ height: "35px", padding: 0 }}
-            alt=""
+            alt={`User Photo: ${profile.displayName}`}
           />
-        </MDBDropdownToggle>
+        ) : (
+          <MDBIcon icon="user" onClick={() => navigate("/user/login")} />
+        )}
+      </MDBDropdownToggle>
+      {isLoggedIn ? (
         <MDBDropdownMenu className="dropdown-default" right>
-          <MDBDropdownItem href="#!">My account</MDBDropdownItem>
-          <MDBDropdownItem onClick={() => logOut}>
+          <MDBDropdownItem onClick={() => navigate("/user")}>
+            My account
+          </MDBDropdownItem>
+          <MDBDropdownItem onClick={() => auth.signOut}>
             <MDBIcon icon="sign-out-alt" /> Log out
           </MDBDropdownItem>
         </MDBDropdownMenu>
-      </MDBDropdown>
-    )
-  } else {
-    return (
-      <Link
-        to="/login"
-        className="waves-effect waves-light d-flex align-items-center nav-link"
-      >
-        <MDBIcon icon="user-circle" className="ml-1" />
-      </Link>
-    )
-  }
+      ) : null}
+    </MDBDropdown>
+  )
 }
 
 export default UserIcon
