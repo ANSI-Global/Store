@@ -3,22 +3,41 @@ type Warehouse @collection(name: "warehouses") {
   address: Address!
 }
 
+type Category @collection(name: "categories") {
+  label: String!
+}
+
 type Product @collection(name: "products") {
   name: String!
   description: String!
+  images: [String]
   price: Float!
-  warehouse: Warehouse!
-  quantity: Int!
-  backorderLimit: Int!
-  backordered: Boolean!
+  warehouse: Warehouse
+  quantity: Int
+  backorderLimit: Int
+  backordered: Boolean
+}
+
+type User @collection(name: "users") {
+  uid: ID!
+  email: String
+  username: String
+  password: String
+  phone: String
+  address: Address
+  image: String
+  role: String
+  searchedItems: [String]
+  clickedItems: [String]
+  usedTags: [Strings]
 }
 
 type Customer @collection(name: "customers") {
-  firstName: String!
-  lastName: String!
-  address: Address!
-  telephone: String!
-  creditCard: CreditCard!
+  user: User!
+  products: [Product]
+  deliveryMethod: String
+  paymentMethod: String
+  orderStatus: String
 }
 
 type Order @collection(name: "orders") {
@@ -28,7 +47,8 @@ type Order @collection(name: "orders") {
   creationDate: Time!
   shipDate: Time
   shipAddress: Address!
-  creditCard: CreditCard!
+  dateCreated: String
+  details: String
 }
 
 type Address @embedded {
@@ -38,15 +58,16 @@ type Address @embedded {
   zipCode: String!
 }
 
-type CreditCard @embedded {
-  network: String!
-  number: String!
+type CustomerGroups {
+  dateCreated: String
+  name: String
+  description: String
+  id: ID!
 }
 
 type ProductLine @embedded {
   product: Product!
   quantity: Int!
-  price: Float!
 }
 
 input SubmitOrderProductInput {
@@ -56,7 +77,9 @@ input SubmitOrderProductInput {
 
 type Query {
   allWarehouses: [Warehouse!]! @index(name: "all_warehouses")
+  allCategories: [Category!]! @index(name: "all_categories")
   allProducts: [Product!]! @index(name: "all_products")
+  allUsers: [User!]! @index(name: "all_users")
   allCustomers: [Customer!]! @index(name: "all_customers")
   allOrders: [Order!]! @index(name: "all_orders")
 }
