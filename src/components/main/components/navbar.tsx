@@ -18,6 +18,7 @@ import "./style.sass"
 
 const NavbarPage = () => {
   const [collapseID, setCllapseID] = useState(false)
+  const [messageCount, setMessageCount] = useState(1)
 
   return (
     <MDBNavbar color="info-color" expand="md" dark>
@@ -64,20 +65,21 @@ const NavbarPage = () => {
           </MDBNavItem>
         </MDBNavbarNav>
         <MDBNavbarNav right>
-          <MDBNavItem>
-            <Link to="/user/login" className="nav-link">
-              Login
-            </Link>
-          </MDBNavItem>
-          <MDBNavItem>
-            <Link
-              className="waves-effect waves-light d-flex align-items-center nav-link"
-              to="#!"
-            >
-              1
-              <MDBIcon icon="envelope" className="ml-1" />
-            </Link>
-          </MDBNavItem>
+          {messageCount ? (
+            <MDBNavItem>
+              <Link
+                className="waves-effect waves-light d-flex align-items-center nav-link"
+                to="#!"
+              >
+                {messageCount}
+                <MDBIcon
+                  icon="envelope"
+                  className="ml-1"
+                  onClick={() => setMessageCount(0)}
+                />
+              </Link>
+            </MDBNavItem>
+          ) : null}
           <MDBNavItem>
             <UserIcon />
           </MDBNavItem>
