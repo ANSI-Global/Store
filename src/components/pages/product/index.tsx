@@ -2,11 +2,13 @@ import parser from "html-react-parser"
 import { MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
 import SEO from "../../main/seo"
+import Carousel from "./carousel"
 import Stars from "./components/stars"
 import UserRatings from "./components/userRating"
 import Image from "./image"
 import QA from "./qa"
 import Reviews from "./reviews"
+import Test from "./test"
 import Variants from "./variant"
 
 interface props {
@@ -14,10 +16,18 @@ interface props {
   id?: string
 }
 
+const ex = [
+  "https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg",
+  "https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg",
+  "https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg",
+]
+
 const Product = ({ id }: props) => {
   return (
     <MDBContainer fluid>
       <SEO title={`Product ${id}`} />
+      <Carousel images={ex} />
+      <Test />
       <MDBRow>
         <MDBCol size="4">
           <Image />
