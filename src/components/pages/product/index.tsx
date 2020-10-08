@@ -1,3 +1,4 @@
+import parser from "html-react-parser"
 import { MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
 import SEO from "../../main/seo"
@@ -52,6 +53,9 @@ const Product = ({ id }: props) => {
           </ul>
           <br />
           Description
+          {parser(
+            "<h1>This is a h1</h1> <h2>This is a h2</h2> <h3>This is a h3</h3> "
+          )}
           <ul>
             <li>This is a product</li>
             <li>It's color is Blue</li>
