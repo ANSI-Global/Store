@@ -10,6 +10,7 @@ type Category @collection(name: "categories") {
 type Product @collection(name: "products") {
   name: String!
   description: String!
+  categoryID: String
   images: [String]
   price: Float!
   warehouse: Warehouse
@@ -20,12 +21,7 @@ type Product @collection(name: "products") {
 
 type User @collection(name: "users") {
   uid: ID!
-  email: String
-  username: String
-  password: String
-  phone: String
   address: Address
-  image: String
   role: String
   searchedItems: [String]
   clickedItems: [String]
