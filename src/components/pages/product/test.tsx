@@ -24,26 +24,25 @@ const ModalPage = () => {
   const [modal, setModal] = useState(false)
   const [accordion, setAccordion] = useState(1)
 
-  const toggle = nr => () => {
-    let modalNumber = "modal" + nr
-    setModal(!modal)
+  const onClick = (nr: number) => () => {
+    setAccordion(nr)
   }
 
-  const onClick = nr => () => {
-    setAccordion(nr)
+  const toggle = () => {
+    setModal(!modal)
   }
 
   return (
     <MDBContainer>
-      <MDBBtn onClick={toggle(13)}>Launch ModalBody</MDBBtn>
-      <MDBModal size="lg" isOpen={modal} toggle={toggle(13)}>
+      <MDBBtn onClick={toggle}>Launch ModalBody</MDBBtn>
+      <MDBModal size="lg" isOpen={modal} toggle={toggle}>
         <MDBModalBody className="d-flex">
           <MDBCol size="5" lg="5">
             <MDBCarousel
               activeItem={1}
               length={3}
-              showControls={true}
-              showIndicators={true}
+              showControls
+              showIndicators
               thumbnails
               className="z-depth-1"
             >
@@ -182,10 +181,10 @@ const ModalPage = () => {
               </MDBCol>
             </MDBRow>
             <MDBRow className="justify-content-center">
-              <MDBBtn color="secondary" className="ml-4" onClick={toggle(13)}>
+              <MDBBtn color="secondary" className="ml-4" onClick={toggle}>
                 Close
               </MDBBtn>
-              <MDBBtn color="primary" className="ml-4" onClick={toggle(13)}>
+              <MDBBtn color="primary" className="ml-4" onClick={toggle}>
                 Add to Cart
                 <MDBIcon icon="cart-plus" className="ml-2" />
               </MDBBtn>

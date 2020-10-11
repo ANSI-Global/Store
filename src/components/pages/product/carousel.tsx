@@ -18,7 +18,7 @@ const CarouselPage = ({ images }: { images: string[] }) => (
     >
       <MDBCarouselInner>
         {images.map((image: string, index: number) => (
-          <MDBCarouselItem itemId={index.toString()}>
+          <MDBCarouselItem key={index} itemId={index.toString()}>
             <MDBView>
               <img className="d-block w-100" src={image} alt="First slide" />
             </MDBView>
