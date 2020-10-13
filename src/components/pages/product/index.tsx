@@ -1,21 +1,12 @@
 import parser from "html-react-parser"
-import { MDBBtn, MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
+import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
 import React, { useEffect, useState } from "react"
 import SEO from "../../main/seo"
-import Carousel from "./carousel"
-import Image from "./components/image"
-import Stars from "./components/stars"
-import UserRatings from "./components/userRating"
-import QA from "./qa"
-import Reviews from "./reviews"
-import Test from "./test"
+import BuyNow from "./buyNow"
+import Image from "./image"
+import RAQ from "./raq"
+import Ratings from "./ratings"
 import Variants from "./variant"
-
-interface props {
-  path?: string
-  id?: string
-  data?: any
-}
 
 interface product {
   _id: string
@@ -23,18 +14,18 @@ interface product {
   description?: string
 }
 
-const ex = [
-  "https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg",
-  "https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg",
-  "https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg",
-]
+interface props {
+  path?: string
+  id?: string
+  data?: { fauna: { allProducts: { data: [product] } } }
+}
 
 const Product = ({ id, data }: props) => {
   const [product, setProduct] = useState<product>(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    data.fauna.allProducts.data.map((item: product) => {
+    data.fauna.allProducts.data.map(item => {
       if (item._id == id) {
         setProduct(item)
       }
@@ -46,32 +37,21 @@ const Product = ({ id, data }: props) => {
     if (product) {
       return (
         <MDBContainer fluid>
-          <SEO title={`Product ${id}`} />
-          <Carousel images={ex} />
-          <Test />
+          <SEO
+            key={product._id}
+            lang="en"
+            title={product.title}
+            description={product.description}
+          />
           <MDBRow>
             <MDBCol size="4">
-              <Image />
+              {typeof window !== "undefined" ? <Image images={null} /> : null}
             </MDBCol>
             <MDBCol size="5">
-              Title: {product.title} <br /> ID is: {id}
+              <h2>{product.title} </h2> <br />
+              <h6> ID: {product._id}</h6>
               <br />
-              <MDBRow>
-                <MDBCol size="2">
-                  <Stars rating={5} />
-                </MDBCol>
-                <MDBCol size="6">
-                  <MDBContainer fluid>
-                    <MDBRow>
-                      <MDBCol>Your rating: </MDBCol>
-                      <MDBCol>
-                        <UserRatings />
-                      </MDBCol>
-                    </MDBRow>
-                  </MDBContainer>
-                </MDBCol>
-                <MDBCol size="4">40,000 ratings</MDBCol>
-              </MDBRow>
+              <Ratings productID={product._id} fauna={data.fauna} />
               <hr className="px-1" />
               Rs.400/=
               <br />
@@ -91,10 +71,7 @@ const Product = ({ id, data }: props) => {
               </a>
             </MDBCol>
             <MDBCol size="3">
-              Purchase
-              <MDBIcon icon="cart" />
-              <MDBBtn>Add to cart</MDBBtn>
-              <MDBBtn>BuyNow</MDBBtn>
+              <BuyNow />
             </MDBCol>
           </MDBRow>
           <br />
@@ -104,16 +81,7 @@ const Product = ({ id, data }: props) => {
           Variations
           <Variants />
           <br />
-          <MDBRow>
-            <MDBCol>
-              Reviews
-              <Reviews />
-            </MDBCol>
-            <MDBCol>
-              Questions and anwsers
-              <QA />
-            </MDBCol>
-          </MDBRow>
+          <RAQ />
         </MDBContainer>
       )
     } else {

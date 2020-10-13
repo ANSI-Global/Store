@@ -5,12 +5,13 @@ import UserRatings from "./components/userRating"
 
 interface props {
   rating?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
-  userRating?: 0 | 1 | 2 | 3 | 4 | 5
+  productID: string
   noOfRatings?: number
+  fauna:any
 }
 
 const Product = (props: props) => {
-  const { rating = 0, userRating = 0, noOfRatings = 0 } = props
+  const { rating = 0, productID, noOfRatings = 0 ,fauna} = props
   return (
     <MDBContainer fluid>
       <MDBRow>
@@ -19,9 +20,9 @@ const Product = (props: props) => {
         </MDBCol>
         <MDBCol size="6">
           <MDBRow>
-            <MDBCol>Your rating: </MDBCol>
+           
             <MDBCol>
-              <UserRatings rating={userRating} />
+              <UserRatings productID={productID} fauna={fauna}/>
             </MDBCol>
           </MDBRow>
         </MDBCol>

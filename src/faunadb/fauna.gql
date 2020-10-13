@@ -9,11 +9,11 @@ type Category @collection(name: "categories") {
 
 type Product @collection(name: "products") {
   name: String!
-  description: String!
-  categoryID: String
+  description: String
+  categoryID: Int
   images: [String]
-  price: Float!
-  warehouse: Warehouse
+  price: Int
+  warehouse: Int
   quantity: Int
   backorderLimit: Int
   backordered: Boolean
@@ -24,45 +24,58 @@ type User @collection(name: "users") {
   address: Address
   role: String
   searchedItems: [String]
-  clickedItems: [String]
-  usedTags: [Strings]
+  clickedItems: [Int]
+  usedTags: [String]
 }
 
 type Customer @collection(name: "customers") {
   user: User!
-  products: [Product]
+  uid: Int
+  products: [String]
   deliveryMethod: String
   paymentMethod: String
   orderStatus: String
 }
 
 type Order @collection(name: "orders") {
-  customer: Customer!
+  customer: Int!
   line: [ProductLine!]!
   status: String!
   creationDate: Time!
   shipDate: Time
   shipAddress: Address!
-  dateCreated: String
   details: String
+}
+
+type Pages @collection(name: "pages") {
+  products: ProductPage
+}
+
+type ProductPage {
+  imageCarousel: [ImageCarousel!]!
+}
+
+type ImageCarousel @embedded {
+  image: String!
+  text: String
 }
 
 type Address @embedded {
   street: String!
-  city: String!
+  city: String
   state: String!
-  zipCode: String!
+  zipCode: Int
 }
 
 type CustomerGroups {
-  dateCreated: String
+  dateCreated: Time
   name: String
   description: String
-  id: ID!
+  customers: [Int]!
 }
 
 type ProductLine @embedded {
-  product: Product!
+  productID: Int!
   quantity: Int!
 }
 
@@ -78,6 +91,7 @@ type Query {
   allUsers: [User!]! @index(name: "all_users")
   allCustomers: [Customer!]! @index(name: "all_customers")
   allOrders: [Order!]! @index(name: "all_orders")
+  allPages: [Pages!]! @index(name: "all_pages")
 }
 
 type Mutation {

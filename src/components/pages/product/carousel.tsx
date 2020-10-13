@@ -7,7 +7,11 @@ import {
 } from "mdbreact"
 import React from "react"
 
-const CarouselPage = ({ images }: { images: string[] }) => (
+type props = {
+  images: any
+}
+
+const ImageCarousel = ({ images }: props) => (
   <MDBContainer>
     <MDBCarousel
       activeItem={1}
@@ -17,10 +21,10 @@ const CarouselPage = ({ images }: { images: string[] }) => (
       className="z-depth-1"
     >
       <MDBCarouselInner>
-        {images.map((image: string, index: number) => (
+        {images.map((image, index: number) => (
           <MDBCarouselItem key={index} itemId={index.toString()}>
             <MDBView>
-              <img className="d-block w-100" src={image} alt="First slide" />
+              <img className="d-block w-100" src={image.src} alt={image.alt} />
             </MDBView>
           </MDBCarouselItem>
         ))}
@@ -29,4 +33,4 @@ const CarouselPage = ({ images }: { images: string[] }) => (
   </MDBContainer>
 )
 
-export default CarouselPage
+export default ImageCarousel

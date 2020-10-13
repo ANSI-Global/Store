@@ -1,65 +1,56 @@
-import { MDBIcon } from "mdbreact"
-import React, { useState } from "react"
+import { useAuth } from "gatsby-theme-firebase"
+import React, { useEffect, useState } from "react"
+import UserRatingsBar from "./components/userRatingBar"
 
 interface props {
-  rating?: 0 | 1 | 2 | 3 | 4 | 5
+  productID: string
+  fauna:any
 }
 
-const Stars = (props: props) => {
-  const { rating = 0 } = props
-  const [stars, setStars] = useState(rating)
+const UserRating = (props: props) => {
+  const [isReviewed, setIsReviewed] = useState(false)
+  const [isPurchaced, setIsPurchaced] = useState(false)
+  const [rating, setRating] = useState<0 | 1 | 2 | 3 | 4 | 5>(null)
+  const [isFetching, setIsFetching] = useState(true)
 
-  const ifStars = (value?: 0 | 1 | 2 | 3 | 4 | 5) => {
-    if (true) {
-      // check if user logged
-      // send the rating to server with uid
+  const { isLoading, isLoggedIn,profile } = useAuth()
+
+
+
+  useEffect(() => {
+    // checking if user rated and how much
+    props.fauna.allProducts.data.map(item => {
+      item.reviews.map(review=>{
+        if ( review.uid== profile.uid) {
+          setRating(review.rating)
+          setIsReviewed(true)
+        }
+        else {setIsReviewed(false)}
+      })
+ 
+    })
+    // checking if user bought the product
+    props.fauna.allOrders.data.map(order => {
+      order.products.map(product=>{
+        if ( product._id== props.productID) {
+          setIsPurchaced(true)
+        }
+        else {setIsPurchaced(false)}
+      })
+ 
+    })
+    setIsFetching(false)
+  }, [])
+
+  if (!isLoading && !isFetching) {
+    if (isLoggedIn) {
+      return (<UserRatingsBar uid={profile.uid} rating={rating} isReviewed={isReviewed} isPurchaced={isPurchaced}/>)
     } else {
-      // else send the rating to server with guest status
+      return null
     }
+  } else {
+    return <p>Loading...</p>
   }
-
-  return (
-    <>
-      <ul className="rating">
-        <li>{stars <= 0 && null}</li>
-        <li>
-          {stars >= 1 ? (
-            <MDBIcon icon="star" onClick={() => setStars(1)} />
-          ) : (
-            <MDBIcon far icon="star" onClick={() => setStars(1)} />
-          )}
-        </li>
-        <li>
-          {stars >= 2 ? (
-            <MDBIcon icon="star" onClick={() => setStars(2)} />
-          ) : (
-            <MDBIcon far icon="star" onClick={() => setStars(2)} />
-          )}
-        </li>
-        <li>
-          {stars >= 3 ? (
-            <MDBIcon icon="star" onClick={() => setStars(3)} />
-          ) : (
-            <MDBIcon far icon="star" onClick={() => setStars(3)} />
-          )}
-        </li>
-        <li>
-          {stars >= 4 ? (
-            <MDBIcon icon="star" onClick={() => setStars(4)} />
-          ) : (
-            <MDBIcon far icon="star" onClick={() => setStars(4)} />
-          )}
-        </li>
-        <li>
-          {stars >= 5 ? (
-            <MDBIcon icon="star" onClick={() => setStars(5)} />
-          ) : (
-            <MDBIcon far icon="star" onClick={() => setStars(5)} />
-          )}
-        </li>
-      </ul>
-    </>
-  )
 }
 
-export default Stars
+export default UserRating
