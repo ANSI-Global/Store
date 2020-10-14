@@ -24,8 +24,9 @@ export const query = graphql`
       allProducts {
         data {
           _id
-          title
-          description
+          name
+          images
+          price
         }
       }
     }
