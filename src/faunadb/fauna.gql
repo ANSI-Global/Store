@@ -23,6 +23,7 @@ type User @collection(name: "users") {
   uid: ID!
   address: Address
   role: String
+  wishList: [Int]
   searchedItems: [String]
   clickedItems: [Int]
   usedTags: [String]
