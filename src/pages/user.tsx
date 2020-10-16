@@ -1,6 +1,6 @@
 import { navigate } from "gatsby"
 import { useAuth } from "gatsby-theme-firebase"
-import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
+import { MDBCol, MDBContainer, MDBRow, MDBSpinner } from "mdbreact"
 import React from "react"
 import Layout from "../components/main/layout"
 import SEO from "../components/main/seo"
@@ -9,7 +9,7 @@ const Product = () => {
   const { isLoading, isLoggedIn, profile } = useAuth()
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <MDBSpinner multicolor />
   } else {
     if (isLoggedIn) {
       return (
