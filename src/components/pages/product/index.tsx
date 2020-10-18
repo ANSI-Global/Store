@@ -1,5 +1,5 @@
 import parser from "html-react-parser"
-import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
+import { MDBCol, MDBContainer, MDBRow, MDBSpinner } from "mdbreact"
 import React, { useEffect, useState } from "react"
 import SEO from "../../main/seo"
 import BuyNow from "./buyNow"
@@ -44,10 +44,10 @@ const Product = ({ id, data }: props) => {
             description={product.description}
           />
           <MDBRow>
-            <MDBCol size="4">
+            <MDBCol xs="12" sm="12" md="6" lg="4" xl="4">
               {typeof window !== "undefined" ? <Image images={null} /> : null}
             </MDBCol>
-            <MDBCol size="5">
+            <MDBCol xs="12" sm="12" md="6" lg="4" xl="4">
               <h2>{product.title} </h2> <br />
               <h6> ID: {product._id}</h6>
               <br />
@@ -92,11 +92,7 @@ const Product = ({ id, data }: props) => {
       )
     }
   } else {
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    )
+    return <MDBSpinner multicolor />
   }
 }
 
