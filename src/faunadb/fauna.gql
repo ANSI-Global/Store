@@ -29,23 +29,17 @@ type User @collection(name: "users") {
   usedTags: [String]
 }
 
-type Customer @collection(name: "customers") {
-  user: User!
-  uid: Int
-  products: [String]
+type Order @collection(name: "orders") {
+  uid: Int!
+  line: [ProductLine!]!
+  status: String
+  creationDate: Int!
+  shipDate: Int
+  shipAddress: Address!
+  details: String
   deliveryMethod: String
   paymentMethod: String
   orderStatus: String
-}
-
-type Order @collection(name: "orders") {
-  customer: Int!
-  line: [ProductLine!]!
-  status: String!
-  creationDate: Time!
-  shipDate: Time
-  shipAddress: Address!
-  details: String
 }
 
 type Pages @collection(name: "pages") {
@@ -69,7 +63,7 @@ type Address @embedded {
 }
 
 type CustomerGroups {
-  dateCreated: Time
+  dateCreated: Int
   name: String
   description: String
   customers: [Int]!
