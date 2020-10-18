@@ -1,7 +1,7 @@
 import { MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
 
-const SocialPage = () => (
+const QA = () => (
   <MDBCard
     className="my-5 px-5 pt-4"
     style={{ fontWeight: 300, maxWidth: 600 }}
@@ -185,4 +185,4 @@ const SocialPage = () => (
   </MDBCard>
 )
 
-export default SocialPage
+export default QA

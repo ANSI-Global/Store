@@ -15,8 +15,6 @@ type Product @collection(name: "products") {
   price: Int
   warehouse: Int
   quantity: Int
-  backorderLimit: Int
-  backordered: Boolean
 }
 
 type User @collection(name: "users") {

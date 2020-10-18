@@ -1,6 +1,6 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
 import React from "react"
-import Stars from "./components/stars"
+import Stars from "./components/components/stars"
 import UserRatings from "./components/userRating"
 
 interface props {
