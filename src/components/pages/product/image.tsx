@@ -1,4 +1,4 @@
-import { MDBCol, MDBRow } from "mdbreact"
+import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
 import React, { useEffect, useState } from "react"
 import Carousel from "./carousel"
 import Image from "./components/image"
@@ -31,14 +31,20 @@ const Product = ({ images }: props) => {
 
   return (
     <>
-      {windowWidth <= 760 ? <Carousel images={imagesEx} /> : null}
-      {windowWidth > 760 ? (
+      <MDBContainer>
         <MDBRow>
-          <MDBCol size="4">
-            <Image images={imagesEx} />
+          <MDBCol>
+            <Carousel images={imagesEx} />
+          </MDBCol>
+          <MDBCol>
+            <MDBRow>
+              <MDBCol size="4">
+                <Image images={imagesEx} />
+              </MDBCol>
+            </MDBRow>
           </MDBCol>
         </MDBRow>
-      ) : null}
+      </MDBContainer>
     </>
   )
 }
