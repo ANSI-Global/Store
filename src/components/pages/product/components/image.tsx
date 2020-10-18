@@ -1,5 +1,6 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
 import React, { useState } from "react"
+import { SideBySideMagnifier } from "react-image-magnifiers"
 
 const Image = ({ images }) => {
   const [imageNo, setImageNo] = useState(1)
@@ -16,7 +17,10 @@ const Image = ({ images }) => {
                   className="p-2 col-example text-left"
                   style={{ display: "none" }}
                 >
-                  <img src={image.src} alt={image.alt} />
+                  <SideBySideMagnifier
+                    imageSrc={image.src}
+                    imageAlt={image.alt}
+                  />
                 </button>
               )
             )}
