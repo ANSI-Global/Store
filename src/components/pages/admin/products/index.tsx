@@ -1,23 +1,30 @@
-import { MDBCol, MDBIcon, MDBRow } from "mdbreact"
+import { MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
+import Template from "./components/product/template"
+import List from "./list"
+import Menu from "./menu"
 
-const SelectPage = () => {
+const ProductsPage = ({ path }) => {
   return (
     <>
-      <MDBRow>
-        <MDBCol size="2">
-          <MDBIcon icon="folder-open" size="2x" />
-        </MDBCol>
-        <MDBCol>All Status</MDBCol>
-      </MDBRow>
-      <MDBRow>
-        <MDBCol size="2">
-          <MDBIcon icon="cog" size="2x" />
-        </MDBCol>
-        <MDBCol>Manage Status</MDBCol>
-      </MDBRow>
+      <MDBContainer fluid>
+        <MDBRow>
+          <MDBCol>
+            <MDBIcon icon="plus" />
+          </MDBCol>
+        </MDBRow>
+        <MDBRow>
+          <MDBCol xs="12" sm="12" md="3" lg="3" xl="3">
+            <Menu />
+          </MDBCol>
+          <MDBCol xs="12" sm="12" md="9" lg="9" xl="9">
+            <List />
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      <Template />
     </>
   )
 }
 
-export default SelectPage
+export default ProductsPage

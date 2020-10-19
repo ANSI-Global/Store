@@ -1,7 +1,7 @@
 import { MDBCol, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
 
-const SelectPage = () => {
+const SelectPage = ({ path }) => {
   return (
     <>
       <MDBRow>

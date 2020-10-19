@@ -15,6 +15,8 @@ type Product @collection(name: "products") {
   price: Int
   warehouse: Int
   quantity: Int
+  variants: [Int]
+  enabled: Boolean
 }
 
 type User @collection(name: "users") {
