@@ -4807,6 +4807,13 @@ component-inherit@0.0.3:
   resolved "https://registry.yarnpkg.com/component-inherit/-/component-inherit-0.0.3.tgz#645fc4adf58b72b649d5cae65135619db26ff143"
   integrity sha1-ZF/ErfWLcrZJ1crmUTVhnbJv8UM=
 
+compress-tag@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/compress-tag/-/compress-tag-2.0.0.tgz#a6b8c1c275b8b4fdf7de3932c02d1b37148f5aa9"
+  integrity sha512-FJboANe4KDqcBOFkEKUW3sW1YUKCeYcFUXY0oBDcJlWanmtrMbVVRGQc9WvYf/yOQoxd78SN9koV1d0DGVm44w==
+  dependencies:
+    unraw "^2.0.0"
+
 compressible@~2.0.16:
   version "2.0.18"
   resolved "https://registry.yarnpkg.com/compressible/-/compressible-2.0.18.tgz#af53cca6b070d4c3c0750fbd77286a6d7cc46fba"
@@ -15784,6 +15791,11 @@ unquote@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/unquote/-/unquote-1.1.1.tgz#8fded7324ec6e88a0ff8b905e7c098cdc086d544"
   integrity sha1-j97XMk7G6IoP+LkF58CYzcCG1UQ=
+
+unraw@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/unraw/-/unraw-2.0.0.tgz#f42e90f530706e204b4509e697a41f9c9f93b05b"
+  integrity sha512-fNpxuL92wTu4guZmjqzVX5EoCmE8pMKJxUJR/Vcg7fA6BRTwnqfCQ/cQd5CBSQsmpkIm8+FNksJqYdxwBFJHng==
 
 unset-value@^1.0.0:
   version "1.0.0"
