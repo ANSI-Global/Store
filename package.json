@@ -26,6 +26,7 @@
     "gatsby-transformer-sharp": "^2.5.17",
     "google-maps-react": "^2.0.6",
     "html-react-parser": "^0.14.0",
+    "lodash": "^4.17.20",
     "mdbreact": "./src/components/mdbr.tgz",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",

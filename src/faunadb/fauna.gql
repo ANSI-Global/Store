@@ -16,6 +16,8 @@ type Product @collection(name: "products") {
   warehouse: Int
   quantity: Int
   variants: [Int]
+  reviews: [Reviews]
+  questions: [Questions]
   enabled: Boolean
 }
 
@@ -48,6 +50,32 @@ type Pages @collection(name: "pages") {
 
 type ProductPage {
   imageCarousel: [ImageCarousel!]!
+}
+
+type Reviews {
+  uid: String!
+  name: String
+  image: String
+  time: String
+  stars: Int
+  review: String
+}
+
+type Questions {
+  uid: String!
+  name: String
+  image: String
+  time: String
+  question: String
+  anwsers: [Anwsers]
+}
+
+type Anwsers {
+  uid: String!
+  name: String
+  image: String
+  time: String
+  anwser: String
 }
 
 type ImageCarousel @embedded {

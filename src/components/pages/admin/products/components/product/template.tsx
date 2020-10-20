@@ -1,5 +1,6 @@
 import { compress } from "compress-tag"
-import { query } from "faunadb"
+import { Client, query as q } from "faunadb"
+import { toInteger } from "lodash"
 import {
   MDBBtn,
   MDBCard,
@@ -13,7 +14,6 @@ import {
   MDBSwitch,
 } from "mdbreact"
 import React, { useState } from "react"
-import Client from "../../../../../main/faunadb"
 import Table from "./variantTable"
 
 interface props {
@@ -25,28 +25,37 @@ const ProductTemplate = (props: props) => {
   const [name, setName] = useState<string>("")
   const [description, setDescription] = useState<string>("<p>Cat</p>")
   const [categoryID, setCategoryID] = useState<string>()
-  const [images, setImages] = useState<string>()
   const [price, setPrice] = useState<string>()
   const [warehouse, setWarehouse] = useState<string>()
   const [quantity, setQuantity] = useState<string>()
   const [variants, setVariants] = useState<string>()
   const [enabled, setEnabled] = useState<boolean>()
+  const images = []
 
   const {} = props
 
-  const q = query
+  const client = new Client({
+    secret: process.env.GATSBY_FAUNADB_SERVER_KEY,
+  })
+
+  async function getProduct(product: string) {
+    const ret = await client.query(
+      q.Get(q.Ref(q.Collection("products"), product))
+    )
+    console.info(ret)
+  }
 
   async function createProduct() {
-    const ret = await Client(
+    const ret = await client.query(
       q.Create(q.Collection("products"), {
         data: {
           name,
           description,
-          categoryID,
+          categoryID: toInteger(categoryID),
           images,
-          price,
-          warehouse,
-          quantity,
+          price: toInteger(price),
+          warehouse: toInteger(warehouse),
+          quantity: toInteger(quantity),
           enabled,
         },
       })
@@ -55,16 +64,16 @@ const ProductTemplate = (props: props) => {
   }
 
   async function updateProduct() {
-    const ret = await Client(
+    const ret = await client.query(
       q.Update(q.Ref(q.Collection("products"), ""), {
         data: {
           name,
           description,
-          categoryID,
+          categoryID: toInteger(categoryID),
           images,
-          price,
-          warehouse,
-          quantity,
+          price: toInteger(price),
+          warehouse: toInteger(warehouse),
+          quantity: toInteger(quantity),
           enabled,
         },
       })
@@ -191,7 +200,7 @@ const ProductTemplate = (props: props) => {
           <MDBInput
             label="images"
             type="text"
-            onChange={({ currentTarget }) => setImages(currentTarget.value)}
+            onChange={({ currentTarget }) => images.push(currentTarget.value)}
           />
 
           <MDBIcon icon="plus" />
