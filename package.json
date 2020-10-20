@@ -23,7 +23,7 @@
     "gatsby-source-filesystem": "^2.3.35",
     "gatsby-source-graphql": "^2.7.6",
     "gatsby-theme-firebase": "^1.0.10",
-    "gatsby-transformer-sharp": "^2.5.18",
+    "gatsby-transformer-sharp": "^2.5.19",
     "google-maps-react": "^2.0.6",
     "html-react-parser": "^0.14.0",
     "lodash": "^4.17.20",
