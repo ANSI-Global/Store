@@ -1,6 +1,5 @@
 import { MDBCol, MDBContainer, MDBIcon, MDBRow } from "mdbreact"
 import React from "react"
-import Template from "./components/product/template"
 import List from "./list"
 import Menu from "./menu"
 
@@ -22,7 +21,6 @@ const ProductsPage = ({ path }) => {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-      <Template />
     </>
   )
 }
