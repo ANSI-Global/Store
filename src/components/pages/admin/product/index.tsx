@@ -30,7 +30,7 @@ const ProductTemplate = (props: props) => {
   const [warehouse, setWarehouse] = useState<string>("")
   const [quantity, setQuantity] = useState<string>("0")
   const [enabled, setEnabled] = useState<boolean>(false)
-  const [variants, setVariants] = useState<number[]>([])
+  const [variants, setVariants] = useState([])
   const [images, setImages] = useState<[string]>([""])
 
   const { id } = props
@@ -46,7 +46,7 @@ const ProductTemplate = (props: props) => {
     setWarehouse(data.warehouse)
     setQuantity(data.quantity)
     setEnabled(data.enabled)
-    variantsList.push(...data.variants)
+    variantsList.push(data.variants)
     setImages(data.images)
   }
 

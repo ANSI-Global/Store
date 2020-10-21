@@ -6,7 +6,6 @@ const client = new Client({
   secret: process.env.GATSBY_FAUNADB_SERVER_KEY,
 })
 
-const Query = client.query
 const ProductCol = q.Collection("products")
 const productRef = (product: string) => q.Ref(ProductCol, product)
 
@@ -25,7 +24,9 @@ const parse = (data: any) => {
 }
 
 export async function getProduct(product: string) {
-  const { data }: product = await Query(q.Get(q.Ref(ProductCol, product)))
+  const { data }: product = await client.query(
+    q.Get(q.Ref(ProductCol, product))
+  )
   console.info(data)
   // parsing for react states
   const { name, description, enabled, variants, images } = data
@@ -45,7 +46,7 @@ export async function getProduct(product: string) {
 
 export async function createProduct(data: {}) {
   const parsedData = parse(data)
-  const ret = await Query(
+  const ret = await client.query(
     q.Create(ProductCol, {
       parsedData,
     })
@@ -55,7 +56,7 @@ export async function createProduct(data: {}) {
 
 export async function updateProduct(product: string, data?: {}) {
   const parsedData = parse(data)
-  const ret = await Query(
+  const ret = await client.query(
     q.Update(productRef(product), {
       parsedData,
     })
