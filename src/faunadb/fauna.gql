@@ -44,12 +44,12 @@ type Order @collection(name: "orders") {
   orderStatus: String
 }
 
-type Pages @collection(name: "pages") {
-  products: ProductPage
+type Media @collection(name: "media") {
+  productsCarousel: [ImageCarousel]
 }
 
-type ProductPage {
-  imageCarousel: [ImageCarousel!]!
+type Featured @collection(name: "featured") {
+  products: [Int]
 }
 
 type Reviews {
@@ -114,27 +114,6 @@ type Query {
   allUsers: [User!]! @index(name: "all_users")
   allCustomers: [Customer!]! @index(name: "all_customers")
   allOrders: [Order!]! @index(name: "all_orders")
-  allPages: [Pages!]! @index(name: "all_pages")
-}
-
-type Mutation {
-  # Add Mutations
-  addWarehouse: [Warehouse!]! @index(name: "all_warehouses")
-  addCategory: [Category!]! @index(name: "all_categories")
-  addProduct: [Product!]! @index(name: "all_products")
-  addUser: [User!]! @index(name: "all_users")
-  addCustomer: [Customer!]! @index(name: "all_customers")
-  addOrder: [Order!]! @index(name: "all_orders")
-  addPage: [Pages!]! @index(name: "all_pages")
-  # Update Mutations
-  updateWarehouse: [Warehouse!]! @index(name: "all_warehouses")
-  updateCategory: [Category!]! @index(name: "all_categories")
-  updateProduct: [Product!]! @index(name: "all_products")
-  updateUser: [User!]! @index(name: "all_users")
-  updateCustomer: [Customer!]! @index(name: "all_customers")
-  updateOrder: [Order!]! @index(name: "all_orders")
-  updatePage: [Pages!]! @index(name: "all_pages")
-  # Example Mutation
-  updateOrder(customerId: ID!, products: [SubmitOrderProductInput]): Order!
-  @resolver(name: "update_order")
+  allMedia: [Media!]! @index(name: "all_media")
+  allFeatured: [Featured!]! @index(name: "all_featured")
 }

@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
 import {
-  MDBBtn,
   MDBContainer,
   MDBIcon,
   MDBNavbar,
@@ -15,15 +14,12 @@ const SideNavPage = () => {
 
   return (
     <>
-      <MDBNavbar color="unique-color-dark" dark>
-        <MDBBtn size="sm" className="" onClick={() => setIsOpen(!isOpen)}>
-          <MDBIcon icon="bars" size="2x" />
-        </MDBBtn>
+      <MDBNavbar color="light" dark>
+        <MDBIcon icon="bars" size="2x" onClick={() => setIsOpen(!isOpen)} />
         Home
       </MDBNavbar>
       <MDBContainer>
         <MDBSideNav
-          logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
           hidden
           triggerOpening={isOpen}
           breakWidth={1300}

@@ -12,7 +12,11 @@ import React from "react"
 import Layout from "../components/main/layout"
 import SEO from "../components/main/seo"
 
-const NotFoundPage = () => (
+interface props {
+  default?: boolean
+}
+
+const NotFoundPage = (props: props) => (
   <Layout>
     <SEO title="404: Not found" />
     <MDBContainer>

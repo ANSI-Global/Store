@@ -6,8 +6,9 @@ import Customers from "../components/pages/admin/customers"
 import Login from "../components/pages/admin/login"
 import Orders from "../components/pages/admin/orders"
 import Products from "../components/pages/admin/products"
-import ProductTemplate from "../components/pages/admin/products/components/product/template"
+import Product from "../components/pages/admin/products/product"
 import Guard from "../components/pages/admin/routerGuard"
+import NotFound from "./404"
 
 const AdminPage = () => (
   <Layout>
@@ -15,9 +16,11 @@ const AdminPage = () => (
       <Router>
         <Home path="/admin" />
         <Products path="/admin/products" />
-        <ProductTemplate path="/admin/products/update/:id" />
+        <Product path="/admin/product" />
+        <Product path="/admin/product/:id" />
         <Orders path="/admin/orders" />
         <Customers path="/admin/customers" />
+        <NotFound default />
       </Router>
     </Guard>
     <Router>
