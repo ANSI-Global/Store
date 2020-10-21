@@ -1,4 +1,5 @@
 import { compress } from "compress-tag"
+import parser from "html-react-parser"
 import {
   MDBCard,
   MDBCardBody,
@@ -17,7 +18,7 @@ interface props {
   setDescription: Function
 }
 
-const ProductTemplate = (props: props) => {
+const DescriptionCard = (props: props) => {
   const { name, setName, description, setDescription } = props
 
   return (
@@ -42,6 +43,8 @@ const ProductTemplate = (props: props) => {
                   setDescription(compress(currentTarget.value))
                 }
               />
+              <p className="red-text">Description display as,</p>
+              {parser(description)}
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
@@ -50,4 +53,4 @@ const ProductTemplate = (props: props) => {
   )
 }
 
-export default ProductTemplate
+export default DescriptionCard

@@ -14,7 +14,7 @@ interface props {
   setCategoryID: Function
 }
 
-const ProductTemplate = (props: props) => {
+const AdditionalCard = (props: props) => {
   const { setCategoryID } = props
 
   return (
@@ -43,4 +43,4 @@ const ProductTemplate = (props: props) => {
   )
 }
 
-export default ProductTemplate
+export default AdditionalCard
