@@ -1,17 +1,14 @@
 import { navigate } from "gatsby"
+import { useAuth } from "gatsby-theme-firebase"
 import PropTypes from "prop-types"
 
 const adminGuard = ({ children }) => {
-  if (typeof window !== "undefined") {
-    const isLoggedIn = window.sessionStorage.getItem("admin")
-    if (isLoggedIn == "true") {
-      return children
-    } else {
-      navigate("/admin/login")
-      return null
-    }
+  const { isLoggedIn, profile } = useAuth()
+  if (isLoggedIn && profile.uid) {
+    console.log(profile.uid)
+    return children
   } else {
-    console.info("This is SSR")
+    navigate("/user/login")
     return null
   }
 }

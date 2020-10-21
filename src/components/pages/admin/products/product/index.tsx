@@ -1,14 +1,21 @@
-import { Client, query as q } from "faunadb"
 import { toInteger } from "lodash"
-import { MDBCardBody, MDBRow } from "mdbreact"
+import {
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCol,
+  MDBContainer,
+  MDBIcon,
+  MDBRow,
+} from "mdbreact"
 import { useEffect, useState } from "react"
+import Table from "../components/product/variantTable"
 import AdditionalCard from "./additionalCard"
 import DescriptionCard from "./descriptionCard"
-import { getProduct } from "./functions"
+import { createProduct, getProduct, updateProduct } from "./functions"
 import ImageCard from "./imageCard"
 import InventoryCard from "./inventoryCard"
-import { product } from "./productTypes"
-import Table from "./variantTable"
 
 interface props {
   path?: string
@@ -28,20 +35,16 @@ const ProductTemplate = (props: props) => {
 
   const { id } = props
 
-  const client = new Client({
-    secret: process.env.GATSBY_FAUNADB_SERVER_KEY,
-  })
-
   const variantsList = variants
 
   async function setProduct(product: string) {
-    const data = getProduct
+    const data = await getProduct(product)
     setName(data.name)
     setDescription(data.description)
-    setCategoryID(data.categoryID.toString())
-    setPrice(data.price.toString())
-    setWarehouse(data.warehouse.toString())
-    setQuantity(data.quantity.toString())
+    setCategoryID(data.categoryID)
+    setPrice(data.price)
+    setWarehouse(data.warehouse)
+    setQuantity(data.quantity)
     setEnabled(data.enabled)
     variantsList.push(...data.variants)
     setImages(data.images)
@@ -49,7 +52,7 @@ const ProductTemplate = (props: props) => {
 
   useEffect(() => {
     if (id) {
-      getProduct(id)
+      setProduct(id)
     }
   }, [id])
 
@@ -64,24 +67,6 @@ const ProductTemplate = (props: props) => {
     warehouse: toInteger(warehouse),
     quantity: toInteger(quantity),
     enabled,
-  }
-
-  async function createProduct(data: {}) {
-    const ret = await client.query(
-      q.Create(q.Collection("products"), {
-        data,
-      })
-    )
-    console.info(ret)
-  }
-
-  async function updateProduct(product: string, data?: {}) {
-    const ret = await client.query(
-      q.Update(q.Ref(q.Collection("products"), product), {
-        data,
-      })
-    )
-    console.info(ret)
   }
 
   return (
@@ -133,11 +118,20 @@ const ProductTemplate = (props: props) => {
       <MDBRow>
         <MDBCol>
           {id ? (
-            <MDBBtn onClick={createProduct} rounded gradient="aqua">
+            <MDBBtn
+              onClick={() => updateProduct(id, data)}
+              rounded
+              gradient="aqua"
+            >
               Update
             </MDBBtn>
           ) : (
-            <MDBBtn rounded floating gradient="aqua">
+            <MDBBtn
+              onClick={() => createProduct(data)}
+              rounded
+              floating
+              gradient="aqua"
+            >
               <MDBIcon icon="plus" />
             </MDBBtn>
           )}
