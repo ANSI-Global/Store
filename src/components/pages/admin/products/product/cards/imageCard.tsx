@@ -12,14 +12,13 @@ import {
 import React from "react"
 
 interface props {
-  path?: string
-  id?: string
+  product: string
+  images: string[]
+  setImages: Function
 }
 
 const ProductTemplate = (props: props) => {
-  const images = []
-
-  const {} = props
+  const { product, images, setImages } = props
 
   return (
     <MDBContainer>

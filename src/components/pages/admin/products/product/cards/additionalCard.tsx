@@ -8,25 +8,14 @@ import {
   MDBRow,
   MDBSwitch,
 } from "mdbreact"
-import React, { useState } from "react"
+import React from "react"
 
 interface props {
-  path?: string
-  id?: string
+  setCategoryID: Function
 }
 
 const ProductTemplate = (props: props) => {
-  const [name, setName] = useState<string>("")
-  const [description, setDescription] = useState<string>("<p>Cat</p>")
-  const [categoryID, setCategoryID] = useState<string>()
-  const [price, setPrice] = useState<string>()
-  const [warehouse, setWarehouse] = useState<string>()
-  const [quantity, setQuantity] = useState<string>()
-  const [variants, setVariants] = useState<string>()
-  const [enabled, setEnabled] = useState<boolean>()
-  const images = []
-
-  const {} = props
+  const { setCategoryID } = props
 
   return (
     <MDBContainer>

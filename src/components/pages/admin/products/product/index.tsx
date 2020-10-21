@@ -10,12 +10,12 @@ import {
   MDBRow,
 } from "mdbreact"
 import { useEffect, useState } from "react"
-import Table from "../components/product/variantTable"
-import AdditionalCard from "./additionalCard"
-import DescriptionCard from "./descriptionCard"
+import AdditionalCard from "./cards/additionalCard"
+import DescriptionCard from "./cards/descriptionCard"
+import ImageCard from "./cards/imageCard"
+import InventoryCard from "./cards/inventoryCard"
 import { createProduct, getProduct, updateProduct } from "./functions"
-import ImageCard from "./imageCard"
-import InventoryCard from "./inventoryCard"
+import Table from "./variantTable"
 
 interface props {
   path?: string
