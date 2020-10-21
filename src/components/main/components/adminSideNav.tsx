@@ -16,7 +16,7 @@ const SideNavPage = () => {
     <>
       <MDBNavbar color="light" dark>
         <MDBIcon icon="bars" size="2x" onClick={() => setIsOpen(!isOpen)} />
-        Home
+        <Link to="/admin"> Home</Link>
       </MDBNavbar>
       <MDBContainer>
         <MDBSideNav
