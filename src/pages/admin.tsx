@@ -13,15 +13,17 @@ import NotFound from "./404"
 const AdminPage = () => (
   <Layout>
     <Guard>
-      <Router>
-        <Home path="/admin" />
-        <Products path="/admin/products" />
-        <Product path="/admin/product" />
-        <Product path="/admin/product/:id" />
-        <Orders path="/admin/orders" />
-        <Customers path="/admin/customers" />
-        <NotFound default />
-      </Router>
+      <div style={{ backgroundColor: "gray" }}>
+        <Router>
+          <Home path="/admin" />
+          <Products path="/admin/products" />
+          <Product path="/admin/product" />
+          <Product path="/admin/product/:id" />
+          <Orders path="/admin/orders" />
+          <Customers path="/admin/customers" />
+          <NotFound default />
+        </Router>
+      </div>
     </Guard>
     <Router>
       <Login path="/admin/login" />
