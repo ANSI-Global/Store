@@ -7,10 +7,12 @@ import {
   MDBRow,
 } from "mdbreact"
 import React from "react"
+import Product from "./components/item"
 
 const EcommercePage = () => {
   return (
     <section className="text-center my-5">
+      <Product />
       <h2 className="h1-responsive font-weight-bold text-center my-5">
         Our bestsellers
       </h2>

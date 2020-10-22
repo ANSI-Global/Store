@@ -1,0 +1,26 @@
+.itemCard
+    width: 18rem
+
+.card-image
+    max-height: 18rem
+
+.btn-hide, .heart-overlay
+    position: absolute
+    visibility: hidden
+    opacity: 0
+    transition: visibility 0s, opacity 0.5s linear
+
+.btn-hide
+    transition: bottom 0.5s linear
+
+.itemCard:hover
+    .heart-overlay, .btn-hide
+        visibility: visible
+        opacity: 1
+
+    .heart-overlay
+        top: 0
+        right: 0
+
+    .btn-hide
+        bottom: 0
