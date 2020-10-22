@@ -20,7 +20,9 @@ const AdminPage = () => (
           <Product path="/admin/product" />
           <Product path="/admin/product/:id" />
           <Orders path="/admin/orders" />
+          <Orders path="/admin/order/:id" />
           <Customers path="/admin/customers" />
+          <Customers path="/admin/customer/:id" />
           <NotFound default />
         </Router>
       </div>
