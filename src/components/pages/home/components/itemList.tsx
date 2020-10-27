@@ -8,11 +8,13 @@ interface props {
 }
 
 const Data = [
-  { name: "Cat", src: "https://dummyimage.com/300", price: 1000 },
-  { name: "Cat", src: "https://dummyimage.com/300", price: 1000 },
-  { name: "Cat", src: "https://dummyimage.com/300", price: 1000 },
-  { name: "Cat", src: "https://dummyimage.com/300", price: 1000 },
-  { name: "Cat", src: "https://dummyimage.com/300", price: 1000 },
+  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
+  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
+  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
+  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
+  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
+  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
+  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
 ]
 
 const ItemList = (props: props) => {
