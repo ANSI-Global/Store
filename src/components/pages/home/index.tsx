@@ -16,7 +16,7 @@ interface props {
       data: {
         _id: number
         name: string
-        images: string
+        images: [string]
         price: number
       }[]
     }

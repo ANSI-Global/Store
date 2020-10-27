@@ -6,7 +6,7 @@ import NavBar from "./components/navbar"
 const Layout = ({ children }) => (
   <>
     <NavBar />
-    <main>{children}</main>
+    <main style={{ backgroundColor: "gray" }}>{children}</main>
     <Footer />
   </>
 )

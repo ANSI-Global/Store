@@ -1,3 +1,5 @@
+import { navigate } from "gatsby"
+import { MDBBtn } from "mdbreact"
 import React, { useEffect, useRef } from "react"
 import Item from "./item"
 import "./style.sass"
@@ -28,7 +30,15 @@ const ItemList = (props: props) => {
 
   return (
     <>
-      <h4>{title}</h4>
+      <MDBBtn
+        size="sm"
+        flat
+        onClick={() => {
+          navigate("products")
+        }}
+      >
+        <h4>{title}</h4>
+      </MDBBtn>
       <div ref={scrollBar} className="scrollList my-4">
         {data &&
           data.map((item, index) => (
