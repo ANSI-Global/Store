@@ -1,22 +1,37 @@
-import { Router } from "@reach/router"
 import { graphql } from "gatsby"
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
-import React from "react"
+import React, { FC } from "react"
 import Layout from "../components/main/layout"
+import SEO from "../components/main/seo"
 import List from "../components/pages/products"
 import Menu from "../components/pages/products/menu"
-import NotFound from "./404"
 
 interface props {
-  path
-  query?
-  data?
+  data: {
+    fauna: {
+      allCategories: {
+        data: {
+          _id: number
+          label: string
+        }
+      }
+      allProducts: {
+        data: {
+          _id: number
+          name: string
+          images: string
+          price: number
+        }
+      }
+    }
+  }
 }
 
-const Products = ({ data, query }: props) => {
+const Products: FC<props> = ({ data }: props) => {
   return (
     <>
       <Layout>
+        <SEO title="products" />
         <MDBContainer fluid>
           <MDBRow>
             <MDBCol xs="12" sm="12" md="3" lg="2" xl="2">
@@ -31,13 +46,6 @@ const Products = ({ data, query }: props) => {
     </>
   )
 }
-
-const ProductsPage = () => (
-  <Router>
-    <Products path="//products/query:query" />
-    <NotFound default />
-  </Router>
-)
 
 export const query = graphql`
   {
@@ -60,4 +68,4 @@ export const query = graphql`
   }
 `
 
-export default ProductsPage
+export default Products
