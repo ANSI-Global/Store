@@ -4,21 +4,11 @@ import "./style.sass"
 
 interface props {
   title: string
-  data?: [any]
+  data?: { _id: number; name: string; images: [string]; price: number }[]
 }
 
-const Data = [
-  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
-  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
-  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
-  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
-  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
-  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
-  { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
-]
-
 const ItemList = (props: props) => {
-  const { title } = props
+  const { title, data } = props
   const scrollBar = useRef<HTMLDivElement>()
 
   function autoScroll() {
@@ -40,14 +30,16 @@ const ItemList = (props: props) => {
     <>
       <h4>{title}</h4>
       <div ref={scrollBar} className="scrollList my-4">
-        {Data.map((item, index) => (
-          <Item
-            key={index}
-            name={item.name}
-            src={item.src}
-            price={item.price}
-          />
-        ))}
+        {data &&
+          data.map((item, index) => (
+            <Item
+              key={index}
+              id={item._id}
+              name={item.name}
+              src={item.images[0]}
+              price={item.price}
+            />
+          ))}
       </div>
     </>
   )
