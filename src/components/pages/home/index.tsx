@@ -1,23 +1,41 @@
 import { useAuth } from "gatsby-theme-firebase"
-import { MDBContainer } from "mdbreact"
 import React from "react"
 import Carousel from "./carousel"
 import Predicted from "./predicted"
 import ProductsList from "./productsList"
 
-const HomePage = () => {
+interface props {
+  data: {
+    allCategories: {
+      data: {
+        _id: number
+        label: string
+      }[]
+    }
+    allProducts: {
+      data: {
+        _id: number
+        name: string
+        images: string
+        price: number
+      }[]
+    }
+  }
+}
+
+const HomePage = (props: props) => {
   const { isLoggedIn } = useAuth()
   return (
     <>
-      <MDBContainer fluid>
-        <Carousel />
+      <Carousel />
+      <section className="text-center my-5">
         {isLoggedIn ? (
-          <Predicted />
+          <Predicted data={props.data} />
         ) : (
           <p className="text-center">Login to see our recomendations!</p>
         )}
-        <ProductsList />
-      </MDBContainer>
+        <ProductsList data={props.data} />
+      </section>
     </>
   )
 }
