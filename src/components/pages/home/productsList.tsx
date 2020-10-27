@@ -1,16 +1,38 @@
 import React from "react"
-import Product from "./components/itemList"
+import ProductList from "./components/itemList"
 
-const EcommercePage = () => {
+interface props {
+  data: {
+    allCategories: {
+      data: {
+        _id: number
+        label: string
+      }[]
+    }
+    allProducts: {
+      data: {
+        _id: number
+        name: string
+        images: [string]
+        price: number
+      }[]
+    }
+  }
+}
+
+const EcommercePage = (props: props) => {
+  const { data } = props
+  const { allProducts } = data
+
   return (
-    <section className="text-center my-5">
-      <Product title="Our bestsellers" />
-      <Product title="Featured" />
-      <Product title="Electronics" />
-      <Product title="Home Appliance" />
-      <Product title="Materials" />
-      <Product title="Arts and other" />
-    </section>
+    <>
+      <ProductList title="Our bestsellers" data={allProducts.data} />
+      <ProductList title="Featured" data={allProducts.data} />
+      <ProductList title="Electronics" data={allProducts.data} />
+      <ProductList title="Home Appliance" data={allProducts.data} />
+      <ProductList title="Materials" data={allProducts.data} />
+      <ProductList title="Arts and other" data={allProducts.data} />
+    </>
   )
 }
 
