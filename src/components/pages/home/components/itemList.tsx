@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import Item from "./item"
+import "./style.sass"
 
 interface props {
   title: string
@@ -16,24 +17,27 @@ const Data = [
 
 const ItemList = (props: props) => {
   const { title } = props
+  const scrollBar = useRef<HTMLDivElement>()
 
-  async function autoScroll(element: HTMLDivElement) {
-    if (element.scrollBy) {
+  function autoScroll() {
+    const scroll = scrollBar.current
+    if (scroll.scrollBy) {
       self.setInterval(() => {
-        if (element.scrollLeft !== element.scrollWidth) {
-          element.scrollBy(1, 0)
+        if (scroll.scrollLeft < scroll.scrollWidth / 3) {
+          scroll.scrollBy(1, 0)
+        } else {
+          scroll.scrollBy(-scroll.scrollWidth / 3, 0)
         }
-      }, 12)
+      }, 30)
     }
   }
+
+  useEffect(() => autoScroll(), [30])
 
   return (
     <>
       <h4>{title}</h4>
-      <div
-        style={{ display: "flex", overflowY: "scroll" }}
-        ref={element => autoScroll(element)}
-      >
+      <div ref={scrollBar} className="scrollList my-4">
         {Data.map((item, index) => (
           <Item
             key={index}

@@ -21,19 +21,16 @@ interface props {
 }
 
 const Product = (props: props) => {
-  const {} = props
-  const image =
-    "http://dev.ncc.echonlabs.com/wp-content/uploads/2020/09/IMG_1486-500x500.jpg"
-  const product = "Toolbox"
-  const price = 300
+  const { name = "undefined", src = "undefined", price = 0 } = props
+
   return (
     <>
       <MDBCol>
         <MDBCard className="itemCard">
           <Link to={`/product/100`}>
             <MDBCardImage
-              src={image}
-              alt={product}
+              src={src}
+              alt={name}
               className="card-image"
               waves
               zoom
@@ -64,7 +61,7 @@ const Product = (props: props) => {
             </MDBBtn>
           </MDBContainer>
           <MDBCardBody>
-            <MDBCardTitle>{product}</MDBCardTitle>
+            <MDBCardTitle>{name}</MDBCardTitle>
             <MDBCardText>
               {new Intl.NumberFormat("si-SI", {
                 style: "currency",
