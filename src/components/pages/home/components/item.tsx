@@ -15,19 +15,25 @@ import React from "react"
 import "./style.sass"
 
 interface props {
+  id?: number
   name?: string
   src?: string
   price?: number
 }
 
 const Product = (props: props) => {
-  const { name = "undefined", src = "undefined", price = 0 } = props
+  const {
+    id = 100,
+    name = "Cat",
+    src = "https://placekitten.com/200/300",
+    price = 1000,
+  } = props
 
   return (
     <>
       <MDBCol>
         <MDBCard className="itemCard">
-          <Link to={`/product/100`}>
+          <Link to={`/product/${id}`}>
             <MDBCardImage
               src={src}
               alt={name}
@@ -51,11 +57,11 @@ const Product = (props: props) => {
           </MDBBtn>
           {/**Jumbing buttons */}
           <MDBContainer fluid className="btn-hide">
-            <MDBBtn color="blue-grey" className="qViewBtn">
+            <MDBBtn color="blue-grey" onClick={() => {}} className="qViewBtn">
               <MDBIcon far icon="eye" className="mr-1" />
               Quick View
             </MDBBtn>
-            <MDBBtn color="blue-grey" className="addCartBtn">
+            <MDBBtn color="blue-grey" onClick={() => {}} className="addCartBtn">
               <MDBIcon icon="cart-arrow-down" className="mr-1" />
               Add to Cart
             </MDBBtn>
