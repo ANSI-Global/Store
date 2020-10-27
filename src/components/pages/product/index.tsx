@@ -1,6 +1,6 @@
 import parser from "html-react-parser"
 import { MDBCol, MDBContainer, MDBRow, MDBSpinner } from "mdbreact"
-import React, { useEffect, useState } from "react"
+import React, { FC, useEffect, useState } from "react"
 import SEO from "../../main/seo"
 import BuyNow from "./buyNow"
 import Carousel from "./components/carousel"
@@ -23,7 +23,7 @@ interface props {
   data?: { fauna: { allProducts: { data: [product] } } }
 }
 
-const Product = ({ id, data }: props) => {
+const Product: FC<props> = ({ id, data }: props) => {
   const [product, setProduct] = useState<product>(null)
   const [isLoading, setIsLoading] = useState(true)
 

@@ -8,7 +8,7 @@ import {
   MDBJumbotron,
   MDBRow,
 } from "mdbreact"
-import React from "react"
+import React, { FC } from "react"
 import Layout from "../components/main/layout"
 import SEO from "../components/main/seo"
 
@@ -16,7 +16,7 @@ interface props {
   default?: boolean
 }
 
-const NotFoundPage = (props: props) => (
+const NotFoundPage: FC<props> = (props: props) => (
   <Layout>
     <SEO title="404: Not found" />
     <MDBContainer>

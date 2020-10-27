@@ -8,10 +8,10 @@ import {
   MDBInput,
   MDBRow,
 } from "mdbreact"
-import React from "react"
+import React, { FC } from "react"
 import "./style.sass"
 
-const BuyNow = () => {
+const BuyNow: FC = () => {
   const onClick = num => {}
   var radio
   return (

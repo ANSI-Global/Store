@@ -1,9 +1,9 @@
-import React from "react"
+import React, { FC } from "react"
 import Layout from "../components/main/layout"
 import SEO from "../components/main/seo"
 import Page from "../components/pages/checkout"
 
-const IndexPage = () => (
+const IndexPage: FC = () => (
   <Layout>
     <SEO title="Checkout" />
     <Page />
