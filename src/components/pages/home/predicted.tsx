@@ -1,14 +1,34 @@
 import React from "react"
 import ItemList from "./components/itemList"
 
-const Caruosel = () => {
+interface props {
+  data: {
+    allCategories: {
+      data: {
+        _id: number
+        label: string
+      }[]
+    }
+    allProducts: {
+      data: {
+        _id: number
+        name: string
+        images: string
+        price: number
+      }[]
+    }
+  }
+}
+
+const Caruosel = (props: props) => {
+  const Data = [
+    { name: "Cat", src: "https://placekitten.com/200/300", price: 1000 },
+  ]
+
   return (
-    <section className="text-center my-5">
-      <h2 className="h1-responsive font-weight-bold text-center my-5">
-        Our Recomendations
-      </h2>
-      <ItemList title="Our Recomendations" />
-    </section>
+    <>
+      <ItemList title="Our Recomendations" data={props.data.allProducts.data} />
+    </>
   )
 }
 
