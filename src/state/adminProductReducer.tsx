@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 const adminProductSlice = createSlice({
   name: "adminProduct",
   initialState: {
+    id: "",
     name: "",
     description: "",
     categoryID: "",
@@ -14,6 +15,9 @@ const adminProductSlice = createSlice({
     images: [],
   },
   reducers: {
+    setID(state, action: PayloadAction<string>) {
+      state.id = action.payload
+    },
     setName(state, action: PayloadAction<string>) {
       state.name = action.payload
     },
@@ -57,6 +61,7 @@ const adminProductSlice = createSlice({
 })
 
 export const {
+  setID,
   setName,
   setDescription,
   setCategoryID,

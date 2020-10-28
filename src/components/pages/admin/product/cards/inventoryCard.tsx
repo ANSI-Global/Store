@@ -9,29 +9,29 @@ import {
   MDBSwitch,
 } from "mdbreact"
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import {
+  setEnabled,
+  setPrice,
+  setQuantity,
+  setWarehouse,
+} from "../../../../../state/adminProductReducer"
 
-interface props {
-  price: string
-  setPrice: Function
-  quantity: string
-  setQuantity: Function
-  warehouse: string
-  setWarehouse: Function
-  enabled: boolean
-  setEnabled: Function
+interface state {
+  adminProduct: {
+    price: string
+    warehouse: string
+    quantity: string
+    enabled: boolean
+  }
 }
 
-const ProductTemplate = (props: props) => {
-  const {
-    price,
-    setPrice,
-    quantity,
-    setQuantity,
-    warehouse,
-    setWarehouse,
-    enabled,
-    setEnabled,
-  } = props
+const ProductTemplate = () => {
+  const { price, quantity, warehouse, enabled } = useSelector(
+    (state: state) => state.adminProduct
+  )
+
+  const dispatch = useDispatch()
 
   return (
     <MDBContainer>
@@ -48,7 +48,7 @@ const ProductTemplate = (props: props) => {
                     label="Price"
                     value={price}
                     onChange={({ currentTarget }) =>
-                      setPrice(currentTarget.value)
+                      dispatch(setPrice(currentTarget.value))
                     }
                   />
                 </MDBCol>
@@ -59,7 +59,7 @@ const ProductTemplate = (props: props) => {
                     label="Stock"
                     value={quantity}
                     onChange={({ currentTarget }) =>
-                      setQuantity(currentTarget.value)
+                      dispatch(setQuantity(currentTarget.value))
                     }
                   />
                 </MDBCol>
@@ -72,7 +72,7 @@ const ProductTemplate = (props: props) => {
                     label="Warehouse"
                     value={warehouse}
                     onChange={({ currentTarget }) =>
-                      setWarehouse(currentTarget.value)
+                      dispatch(setWarehouse(currentTarget.value))
                     }
                   />
                 </MDBCol>
@@ -80,7 +80,7 @@ const ProductTemplate = (props: props) => {
               Enabled{" "}
               <MDBSwitch
                 checked={enabled}
-                onChange={() => setEnabled(!enabled)}
+                onChange={() => dispatch(setEnabled(!enabled))}
               />
             </MDBCardBody>
           </MDBCard>

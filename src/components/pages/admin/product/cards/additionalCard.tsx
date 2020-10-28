@@ -9,13 +9,19 @@ import {
   MDBSwitch,
 } from "mdbreact"
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setCategoryID } from "../../../../../state/adminProductReducer"
 
-interface props {
-  setCategoryID: Function
+interface state {
+  adminProduct: {
+    categoryID
+  }
 }
 
-const AdditionalCard = (props: props) => {
-  const { setCategoryID } = props
+const AdditionalCard = () => {
+  const { categoryID } = useSelector((state: state) => state.adminProduct)
+
+  const dispatch = useDispatch()
 
   return (
     <MDBContainer>
@@ -28,9 +34,9 @@ const AdditionalCard = (props: props) => {
             <MDBCardBody>
               <MDBInput
                 label="Category"
-                value="Shoe"
+                value={categoryID}
                 onChange={({ currentTarget }) =>
-                  setCategoryID(currentTarget.value)
+                  dispatch(setCategoryID(currentTarget.value))
                 }
               />
               <MDBInput type="Labels" label="Description" value="<p>Cat</p>" />

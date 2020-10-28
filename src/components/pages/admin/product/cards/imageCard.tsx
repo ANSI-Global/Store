@@ -9,23 +9,27 @@ import {
   MDBInput,
   MDBRow,
 } from "mdbreact"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import {
+  addImages,
+  removeImages,
+} from "../../../../../state/adminProductReducer"
 import "./style.sass"
 
-interface props {
-  product: string
-  images: string[]
-  setImages: Function
+interface state {
+  adminProduct: {
+    name: string
+    images: string[]
+  }
 }
 
-const ProductTemplate = (props: props) => {
+const ProductTemplate = () => {
   const [inputValue, setInputValue] = useState("")
-  const [imageList, setImageList] = useState(props.images)
-  const { product, images, setImages } = props
-  const imageArray = imageList
 
-  useEffect(() => setImages(imageList), [imageList])
-  useEffect(() => setImages(imageArray), [imageArray])
+  const dispatch = useDispatch()
+
+  const { name, images } = useSelector((state: state) => state.adminProduct)
 
   return (
     <MDBContainer>
@@ -37,12 +41,12 @@ const ProductTemplate = (props: props) => {
               {images.map((image, index) => (
                 <MDBRow key={index}>
                   <MDBCol>
-                    <img src={image} alt={product} className="mini-image" />
+                    <img src={image} alt={name} className="mini-image" />
                   </MDBCol>
                   <MDBCol size="2">
                     <MDBBtn
                       onClick={() => {
-                        imageArray.splice(index)
+                        removeImages(index)
                       }}
                       rounded
                       floating
@@ -66,7 +70,7 @@ const ProductTemplate = (props: props) => {
                 <MDBCol size="2">
                   <MDBBtn
                     onClick={() => {
-                      setImageList(imageList => [...imageList, inputValue])
+                      dispatch(addImages(inputValue))
                       setInputValue("")
                     }}
                     rounded

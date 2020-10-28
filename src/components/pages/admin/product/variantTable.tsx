@@ -1,13 +1,22 @@
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact"
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setVariants } from "../../../../state/adminProductReducer"
 
-interface props {
-  variants: any
-  onChange: Function
+interface state {
+  adminProduct: {
+    id: number
+    variants: [string]
+  }
 }
 
-const BasicTable = (props: props) => {
-  const { variants } = props
+const BasicTable = () => {
+  const { variants } = useSelector((state: state) => state.adminProduct)
+
+  const dispatch = useDispatch()
+  function cat() {
+    dispatch(setVariants)
+  }
 
   if (variants) {
     return (
