@@ -12,7 +12,7 @@ import {
   setQuantity,
   setVariants,
   setWarehouse,
-} from "../../../../state/adminProductReducer"
+} from "./adminProductReducer"
 import Page from "./page"
 import { product } from "./productTypes"
 

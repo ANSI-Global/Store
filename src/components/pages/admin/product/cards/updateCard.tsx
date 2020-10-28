@@ -9,13 +9,13 @@ interface state {
     id: number
     name: string
     description: string
-    categoryID
-    price
-    warehouse
-    quantity
-    enabled
-    variants
-    images
+    categoryID: string
+    price: string
+    warehouse: string
+    quantity: string
+    enabled: boolean
+    variants: []
+    images: []
   }
 }
 
@@ -38,7 +38,9 @@ const UpdateCard = () => {
   })
 
   const ProductCol = q.Collection("products")
-  const productRef = (product: string) => q.Ref(ProductCol, product)
+  const productRef = (product: string) => {
+    return q.Ref(ProductCol, product)
+  }
 
   const parse = {
     name,
@@ -53,23 +55,29 @@ const UpdateCard = () => {
   }
 
   const createProduct = async () => {
-    const parsedData = parse
-    const ret = await client.query(
-      q.Create(ProductCol, {
-        parsedData,
-      })
-    )
-    console.info(ret)
+    try {
+      await client.query(
+        q.Create(ProductCol, {
+          parse,
+        })
+      )
+      console.info("Product Added!")
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   const updateProduct = async () => {
-    const parsedData = parse
-    const ret = await client.query(
-      q.Update(productRef(id.toString()), {
-        parsedData,
-      })
-    )
-    console.info(ret)
+    try {
+      await client.query(
+        q.Update(productRef(id.toString()), {
+          parse,
+        })
+      )
+      console.info("Product Updated!")
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (

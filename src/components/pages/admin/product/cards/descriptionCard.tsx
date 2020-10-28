@@ -11,10 +11,7 @@ import {
 } from "mdbreact"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import {
-  setDescription,
-  setName,
-} from "../../../../../state/adminProductReducer"
+import { setDescription, setName } from "../adminProductReducer"
 
 interface state {
   adminProduct: {

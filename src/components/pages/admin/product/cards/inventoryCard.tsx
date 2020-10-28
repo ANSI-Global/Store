@@ -15,7 +15,7 @@ import {
   setPrice,
   setQuantity,
   setWarehouse,
-} from "../../../../../state/adminProductReducer"
+} from "../adminProductReducer"
 
 interface state {
   adminProduct: {
