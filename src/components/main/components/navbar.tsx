@@ -13,12 +13,19 @@ import {
   MDBNavItem,
 } from "mdbreact"
 import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { updateNoItems } from "./cartReducer"
 import UserIcon from "./components/userIcon"
 import "./style.sass"
 
+interface state {
+  cart: { items: [number] }
+}
+
 const NavbarPage = () => {
   const [collapseID, setCllapseID] = useState(false)
-  const [messageCount, setMessageCount] = useState(1)
+  const cartItems = useSelector((state: state) => state.cart.items).length
+  const dispatch = useDispatch()
 
   return (
     <MDBNavbar color="info-color" expand="md" dark>
@@ -65,17 +72,17 @@ const NavbarPage = () => {
           </MDBNavItem>
         </MDBNavbarNav>
         <MDBNavbarNav right>
-          {messageCount ? (
+          {cartItems ? (
             <MDBNavItem>
               <Link
                 className="waves-effect waves-light d-flex align-items-center nav-link"
                 to="#!"
               >
-                {messageCount}
+                {cartItems}
                 <MDBIcon
-                  icon="envelope"
+                  icon="shopping-cart"
                   className="ml-1"
-                  onClick={() => setMessageCount(0)}
+                  onClick={() => dispatch(updateNoItems(cartItems + 1))}
                 />
               </Link>
             </MDBNavItem>

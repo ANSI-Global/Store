@@ -12,6 +12,8 @@ import {
   MDBIcon,
 } from "mdbreact"
 import React from "react"
+import { useDispatch } from "react-redux"
+import { addItem } from "../../../main/components/cartReducer"
 import "./style.sass"
 
 interface props {
@@ -28,6 +30,7 @@ const Product = (props: props) => {
     src = "https://placekitten.com/200/300",
     price = 1000,
   } = props
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -61,7 +64,13 @@ const Product = (props: props) => {
               <MDBIcon far icon="eye" className="mr-1" />
               Quick View
             </MDBBtn>
-            <MDBBtn color="blue-grey" onClick={() => {}} className="addCartBtn">
+            <MDBBtn
+              color="blue-grey"
+              onClick={() => {
+                dispatch(addItem(id.toString()))
+              }}
+              className="addCartBtn"
+            >
               <MDBIcon icon="cart-arrow-down" className="mr-1" />
               Add to Cart
             </MDBBtn>
