@@ -46,7 +46,7 @@ const ProductTemplate = () => {
                   <MDBCol size="2">
                     <MDBBtn
                       onClick={() => {
-                        removeImages(index)
+                        dispatch(removeImages(index))
                       }}
                       rounded
                       floating
