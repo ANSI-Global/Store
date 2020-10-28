@@ -1,9 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit"
+import { compose, configureStore } from "@reduxjs/toolkit"
 import rootReducer from "./reducers"
 
 declare global {
   interface Window {
-    __REDUX_DEVTOOLS_EXTENSION__: any
+    __REDUX_DEVTOOLS_EXTENSION__?: typeof compose
   }
 }
 
