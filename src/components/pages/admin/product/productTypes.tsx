@@ -7,7 +7,7 @@ export interface product {
     price?: number
     warehouse?: number
     quantity?: number
-    variants?: number[]
+    variants?: [number]
     reviews?: [any]
     questions?: [any]
     enabled?: boolean
