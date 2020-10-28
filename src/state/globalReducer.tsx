@@ -1,17 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-interface globalState {
-  currency: string
-}
-
-const initialState: globalState = { currency: "Rs." }
-
-const todosSlice = createSlice({
-  name: "todos",
-  initialState,
-  reducers: {},
+const globalSlice = createSlice({
+  name: "global",
+  initialState: { currency: "Rs." },
+  reducers: {
+    updateCurrency(state, action: PayloadAction<string>) {
+      state.currency = action.payload
+    },
+  },
 })
 
-export const {} = todosSlice.actions
+export const { updateCurrency } = globalSlice.actions
 
-export default todosSlice.reducer
+export default globalSlice.reducer

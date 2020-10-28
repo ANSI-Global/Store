@@ -1,15 +1,10 @@
-import { combineReducers, createSlice, PayloadAction } from "@reduxjs/toolkit"
-
-const slice = createSlice({
-  name: "test",
-  initialState: 0,
-  reducers: {
-    increment: (state, action: PayloadAction<number>) => state + action.payload,
-  },
-})
+import { combineReducers } from "@reduxjs/toolkit"
+import AdminProductReducer from "./adminProductReducer"
+import CartReducer from "./cartReducer"
 
 const rootReducer = combineReducers({
-  test: slice.reducer,
+  cart: CartReducer,
+  adminProduct: AdminProductReducer,
 })
 
 export default rootReducer

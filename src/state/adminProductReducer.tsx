@@ -30,7 +30,7 @@ const adminProductSlice = createSlice({
       state.warehouse = action.payload
     },
     setQuantity(state, action: PayloadAction<string>) {
-      state.warehouse = action.payload
+      state.quantity = action.payload
     },
     setEnabled(state, action: PayloadAction<boolean>) {
       state.enabled = action.payload

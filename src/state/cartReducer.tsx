@@ -1,22 +1,32 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-const todosSlice = createSlice({
-  name: "todos",
-  initialState: [],
+const cartSlice = createSlice({
+  name: "cart",
+  initialState: {
+    noItems: 0,
+    items: [],
+  },
   reducers: {
-    addTodo(state, action) {
-      const { id, text } = action.payload
-      state.push({ id, text, completed: false })
+    updateNoItems(state, action: PayloadAction<number>) {
+      state.noItems = action.payload
     },
-    toggleTodo(state, action) {
-      const todo = state.find(todo => todo.id === action.payload)
-      if (todo) {
-        todo.completed = !todo.completed
-      }
+    addItem(state, action: PayloadAction<string>) {
+      state.items.push(action.payload)
+    },
+    removeItem(state, action: PayloadAction<number>) {
+      state.items.splice(action.payload)
+    },
+    updateItems(state, action: PayloadAction<string>) {
+      state.items.push(action.payload)
     },
   },
 })
 
-export const { addTodo, toggleTodo } = todosSlice.actions
+export const {
+  updateNoItems,
+  addItem,
+  removeItem,
+  updateItems,
+} = cartSlice.actions
 
-export default todosSlice.reducer
+export default cartSlice.reducer

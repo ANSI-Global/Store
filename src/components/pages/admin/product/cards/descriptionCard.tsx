@@ -10,6 +10,11 @@ import {
   MDBRow,
 } from "mdbreact"
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import {
+  setDescription,
+  setName,
+} from "../../../../../state/adminProductReducer"
 
 interface props {
   name: string
@@ -18,9 +23,28 @@ interface props {
   setDescription: Function
 }
 
-const DescriptionCard = (props: props) => {
-  const { name, setName, description, setDescription } = props
+interface state {
+  adminProduct: {
+    name: string
+    description: string
+  }
+}
 
+const DescriptionCard = (props: props) => {
+  const { name, description } = useSelector(
+    (state: state) => state.adminProduct
+  )
+
+  const dispatch = useDispatch()
+  dispatch(setName(props.name))
+  dispatch(setDescription(props.description))
+  // dispatch(setCategoryID(parsedData.categoryID))
+  // dispatch(setPrice(parsedData.price))
+  // dispatch(setWarehouse(parsedData.warehouse))
+  // dispatch(setQuantity(parsedData.quantity))
+  // dispatch(setEnabled(parsedData.enabled))
+  // dispatch(setVariants(parsedData.variants))
+  // dispatch(setImages(parsedData.images))
   return (
     <MDBContainer>
       <MDBRow>
