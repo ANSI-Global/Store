@@ -2,7 +2,11 @@ import { navigate } from "gatsby"
 import { MDBCol, MDBContainer, MDBInput, MDBRow } from "mdbreact"
 import React, { useState } from "react"
 
-const FormPage = ({ path }) => {
+interface props {
+  path: string
+}
+
+const AdminLogin = (props: props) => {
   const [isLoggedIn, setisLoggedIn] = useState(false)
   const [user, setUser] = useState("")
   const [pass, setPass] = useState("")
@@ -17,8 +21,6 @@ const FormPage = ({ path }) => {
     if (isLoggedIn) {
       navigate("/admin")
     }
-  } else {
-    console.info("This is SSR")
   }
 
   return (
@@ -54,4 +56,4 @@ const FormPage = ({ path }) => {
   )
 }
 
-export default FormPage
+export default AdminLogin
