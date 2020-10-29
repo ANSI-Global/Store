@@ -83,6 +83,11 @@ module.exports = {
         pathToCreateStoreModule: "./src/state/createStore",
       },
     },
+    // client-routes
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: ["/admin/*", "/product/*"] },
+    },
     // Firebase connection
     {
       resolve: "gatsby-theme-firebase",
