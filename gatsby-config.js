@@ -3,8 +3,10 @@ if (!process.env.GITHUB_ACTION) {
 }
 module.exports = {
   siteMetadata: {
-    title: `ansi`,
-    description: `ANSIGlobal is a react eCommerce platform.`,
+    title: `ANSIGlobal`,
+    description: `ANSI Global is primary Sri Lanka based company which is active in
+    eCommerce, eServices, agriculture, fishing and much more! In our
+    company customer is our primary concern.`,
     author: `@himadu`,
     siteUrl: `https://store.ansiglobal.com`,
   },
@@ -80,7 +82,8 @@ module.exports = {
       options: {
         pathToCreateStoreModule: "./src/state/createStore",
       },
-    }, // Firebase connection
+    },
+    // Firebase connection
     {
       resolve: "gatsby-theme-firebase",
       options: {
@@ -96,6 +99,36 @@ module.exports = {
         },
         loginPath: "/user/login",
         socialLogins: ["google", "github"],
+      },
+    },
+    // Analytics
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: "G-YV58GNXFT2",
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true,
+        // Setting this parameter is optional
+        anonymize: false,
+        // Setting this parameter is also optional
+        respectDNT: false,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/admin/**"],
+        // Delays sending pageview hits on route update (in milliseconds)
+        pageTransitionDelay: 0,
+        // Enables Google Optimize using your container Id
+        optimizeId: "GTM-NNJ3ZFQ",
+        // Enables Google Optimize Experiment ID
+        experimentId: "YOUR_GOOGLE_EXPERIMENT_ID",
+        // Set Variation ID. 0 for original 1,2,3....
+        variationId: "YOUR_GOOGLE_OPTIMIZE_VARIATION_ID",
+        // Defers execution of google analytics script after page load
+        defer: false,
+        // Any additional optional fields
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: "store.ansiglobal.com",
       },
     },
   ],
