@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import {
+  MDBBtn,
   MDBCollapse,
   MDBDropdown,
   MDBDropdownItem,
@@ -14,17 +15,22 @@ import {
 } from "mdbreact"
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { updateSearchBar } from "../../../state/globalReducer"
 import { updateNoItems } from "./cartReducer"
 import UserIcon from "./components/userIcon"
 import "./style.sass"
 
 interface state {
   cart: { items: [number] }
+  global: { searchBar: string }
+  products: { departments: [string] }
 }
 
 const NavbarPage = () => {
   const [collapseID, setCllapseID] = useState(false)
   const cartItems = useSelector((state: state) => state.cart.items).length
+  const { searchBar } = useSelector((state: state) => state.global)
+  const { departments } = useSelector((state: state) => state.products)
   const dispatch = useDispatch()
 
   return (
@@ -50,26 +56,39 @@ const NavbarPage = () => {
               Product
             </Link>
           </MDBNavItem>
-          <MDBNavItem>
-            <MDBDropdown>
-              <MDBDropdownToggle nav caret>
-                <div className="d-none d-md-inline">MDBDropdown</div>
-              </MDBDropdownToggle>
-              <MDBDropdownMenu className="dropdown-default" right>
-                <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-              </MDBDropdownMenu>
-            </MDBDropdown>
-          </MDBNavItem>
-          <MDBNavItem>
-            <form className="form-inline active-pink-3 active-pink-4 mw-200 nav-link">
-              <input
-                className="form-control form-control-sm ml-3 w-75"
-                type="text"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </form>
-          </MDBNavItem>
+          <section className="nav-fill">
+            <MDBNavItem>
+              <MDBDropdown>
+                <MDBDropdownToggle nav caret className="navbar-dropdown">
+                  <div className="d-none d-md-inline">All</div>
+                </MDBDropdownToggle>
+                <MDBDropdownMenu className="dropdown-default" right>
+                  {departments.map((department, index) => (
+                    <MDBDropdownItem key={index} href="#!">
+                      {department}
+                    </MDBDropdownItem>
+                  ))}
+                </MDBDropdownMenu>
+              </MDBDropdown>
+            </MDBNavItem>
+            <MDBNavItem>
+              <form className="form-inline active-pink-3 active-pink-4 mw-200 nav-link">
+                <input
+                  className="form-control form-control-sm ml-3 w-75"
+                  type="text"
+                  placeholder="Search"
+                  aria-label="Search"
+                  value={searchBar}
+                  onChange={({ currentTarget }) =>
+                    dispatch(updateSearchBar(currentTarget.value))
+                  }
+                />
+                <MDBBtn color="orange" className="search-btn">
+                  <MDBIcon icon="search" />
+                </MDBBtn>
+              </form>
+            </MDBNavItem>
+          </section>
         </MDBNavbarNav>
         <MDBNavbarNav right>
           {cartItems ? (
