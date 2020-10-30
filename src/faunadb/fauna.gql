@@ -19,6 +19,7 @@ type Product @collection(name: "products") {
   reviews: [Reviews]
   questions: [Questions]
   enabled: Boolean
+  isFeatured: Boolean
 }
 
 type User @collection(name: "users") {
@@ -46,10 +47,6 @@ type Order @collection(name: "orders") {
 
 type Media @collection(name: "media") {
   productsCarousel: [ImageCarousel]
-}
-
-type Featured @collection(name: "featured") {
-  products: [Int]
 }
 
 type Reviews {

@@ -16,7 +16,7 @@ const SearchBar = () => {
   const dispatch = useDispatch()
 
   return (
-    <form className="form-inline mw-200 nav-link">
+    <form className="form-inline mw-200 nav-link" id="searchBar">
       <select name="All" id="searchSelect">
         {departments.map((department, index) => (
           <option key={index}>{department}</option>
