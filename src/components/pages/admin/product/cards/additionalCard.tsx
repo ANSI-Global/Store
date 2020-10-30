@@ -10,16 +10,19 @@ import {
 } from "mdbreact"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setCategoryID } from "../adminProductReducer"
+import { setCategoryID, setFeatured } from "../adminProductReducer"
 
 interface state {
   adminProduct: {
-    categoryID
+    categoryID: string
+    featured: boolean
   }
 }
 
 const AdditionalCard = () => {
-  const { categoryID } = useSelector((state: state) => state.adminProduct)
+  const { categoryID, featured } = useSelector(
+    (state: state) => state.adminProduct
+  )
 
   const dispatch = useDispatch()
 
@@ -40,7 +43,11 @@ const AdditionalCard = () => {
                 }
               />
               <MDBInput type="Labels" label="Description" value="<p>Cat</p>" />
-              isFeatured: <MDBSwitch />
+              IsFeatured:{" "}
+              <MDBSwitch
+                checked={featured}
+                onChange={() => dispatch(setFeatured(!featured))}
+              />
             </MDBCardBody>
           </MDBCard>
         </MDBCol>

@@ -5,6 +5,7 @@ import {
   setCategoryID,
   setDescription,
   setEnabled,
+  setFeatured,
   setID,
   setImages,
   setName,
@@ -46,6 +47,7 @@ const ProductTemplate = (props: props) => {
           warehouse,
           quantity,
           enabled,
+          featured,
           variants,
           images,
         } = data
@@ -57,6 +59,7 @@ const ProductTemplate = (props: props) => {
         dispatch(setWarehouse(warehouse.toString()))
         dispatch(setQuantity(quantity.toString()))
         dispatch(setEnabled(enabled))
+        dispatch(setFeatured(featured))
         dispatch(setVariants(variants))
         dispatch(setImages(images))
       }

@@ -11,5 +11,6 @@ export interface product {
     reviews?: [any]
     questions?: [any]
     enabled?: boolean
+    featured?: boolean
   }
 }

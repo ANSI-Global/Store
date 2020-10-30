@@ -19,7 +19,7 @@ type Product @collection(name: "products") {
   reviews: [Reviews]
   questions: [Questions]
   enabled: Boolean
-  isFeatured: Boolean
+  featured: Boolean
 }
 
 type User @collection(name: "users") {

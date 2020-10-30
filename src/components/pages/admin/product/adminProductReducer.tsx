@@ -11,6 +11,7 @@ const adminProductSlice = createSlice({
     warehouse: "",
     quantity: "",
     enabled: false,
+    featured: false,
     variants: [],
     images: [],
   },
@@ -39,11 +40,14 @@ const adminProductSlice = createSlice({
     setEnabled(state, action: PayloadAction<boolean>) {
       state.enabled = action.payload
     },
+    setFeatured(state, action: PayloadAction<boolean>) {
+      state.featured = action.payload
+    },
     addVariants(state, action: PayloadAction<number>) {
       state.variants.push(action.payload)
     },
     removeVariants(state, action: PayloadAction<number>) {
-      state.variants.splice(action.payload)
+      state.variants.splice(action.payload, 1)
     },
     setVariants(state, action: PayloadAction<[number]>) {
       state.variants = action.payload
@@ -52,7 +56,7 @@ const adminProductSlice = createSlice({
       state.images.push(action.payload)
     },
     removeImages(state, action: PayloadAction<number>) {
-      state.images.splice(action.payload)
+      state.images.splice(action.payload, 1)
     },
     setImages(state, action: PayloadAction<[string]>) {
       state.images = action.payload
@@ -69,6 +73,7 @@ export const {
   setWarehouse,
   setQuantity,
   setEnabled,
+  setFeatured,
   addVariants,
   removeVariants,
   setVariants,
