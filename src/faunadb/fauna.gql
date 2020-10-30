@@ -25,7 +25,7 @@ type Product @collection(name: "products") {
 
 type User @collection(name: "users") {
   uid: Int!
-  phone: Address
+  phone: Int
   shipAddress: Address
   billAddress: Address
   role: String
@@ -40,7 +40,7 @@ type Order @collection(name: "orders") {
   line: [ProductLine!]!
   status: String
   creationDate: Int
-  phone: String
+  phone: Int
   shipDate: Int
   shipAddress: Address
   billAddress: Address
@@ -54,7 +54,7 @@ type Media @collection(name: "media") {
   productsCarousel: [ImageCarousel]
 }
 
-type Reviews {
+type Reviews @embedded {
   uid: Int!
   name: String
   image: String
@@ -63,7 +63,7 @@ type Reviews {
   review: String
 }
 
-type Questions {
+type Questions @embedded {
   uid: Int!
   name: String
   image: String
@@ -72,7 +72,7 @@ type Questions {
   anwsers: [Anwsers]
 }
 
-type Anwsers {
+type Anwsers @embedded {
   uid: Int!
   name: String
   image: String
@@ -92,13 +92,6 @@ type Address @embedded {
   zipCode: Int
 }
 
-type CustomerGroups {
-  dateCreated: Int
-  name: String
-  description: String
-  customers: [Int]
-}
-
 type ProductLine @embedded {
   productID: Int!
   quantity: Int
@@ -109,7 +102,6 @@ type Query {
   allCategories: [Category!]! @index(name: "all_categories")
   allProducts: [Product!]! @index(name: "all_products")
   allUsers: [User!]! @index(name: "all_users")
-  allCustomers: [Customer!]! @index(name: "all_customers")
   allOrders: [Order!]! @index(name: "all_orders")
   allMedia: [Media!]! @index(name: "all_media")
 }
