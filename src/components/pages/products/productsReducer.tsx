@@ -30,7 +30,8 @@ const productSlice = createSlice({
       "Tools & Home Improvement",
       "Toys & Games",
       "Video Games",
-      "subcat",
+    ],
+    /**"subcat",
       "PC Accessories",
       "PlayStation 4 Games, Consoles & Accessories",
       "PlayStation 4 Headsets",
@@ -38,8 +39,7 @@ const productSlice = createSlice({
       "Legacy Systems",
       "Mac Accessories",
       "Computer Audio & Video Accessories",
-      "Nintendo Switch Accessories",
-    ],
+      "Nintendo Switch Accessories", */
     reviews: [],
     brands: [
       "NUBWO",

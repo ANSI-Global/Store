@@ -37,7 +37,7 @@ const ItemList = (props: props) => {
           navigate("products")
         }}
       >
-        <h4>{title}</h4>
+        <h4 className="white-text">{title}</h4>
       </MDBBtn>
       <div ref={scrollBar} className="scrollList my-4">
         {data &&

@@ -1,11 +1,6 @@
 import { Link } from "gatsby"
 import {
-  MDBBtn,
   MDBCollapse,
-  MDBDropdown,
-  MDBDropdownItem,
-  MDBDropdownMenu,
-  MDBDropdownToggle,
   MDBIcon,
   MDBNavbar,
   MDBNavbarBrand,
@@ -15,8 +10,8 @@ import {
 } from "mdbreact"
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { updateSearchBar } from "../../../state/globalReducer"
 import { updateNoItems } from "./cartReducer"
+import Search from "./components/search"
 import UserIcon from "./components/userIcon"
 import "./style.sass"
 
@@ -51,44 +46,10 @@ const NavbarPage = () => {
               Products
             </Link>
           </MDBNavItem>
+          <MDBNavItem></MDBNavItem>
           <MDBNavItem>
-            <Link to="/product/500" className="nav-link">
-              Product
-            </Link>
+            <Search />
           </MDBNavItem>
-          <section className="nav-fill">
-            <MDBNavItem>
-              <MDBDropdown>
-                <MDBDropdownToggle nav caret className="navbar-dropdown">
-                  <div className="d-none d-md-inline">All</div>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default" right>
-                  {departments.map((department, index) => (
-                    <MDBDropdownItem key={index} href="#!">
-                      {department}
-                    </MDBDropdownItem>
-                  ))}
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavItem>
-            <MDBNavItem>
-              <form className="form-inline active-pink-3 active-pink-4 mw-200 nav-link">
-                <input
-                  className="form-control form-control-sm ml-3 w-75"
-                  type="text"
-                  placeholder="Search"
-                  aria-label="Search"
-                  value={searchBar}
-                  onChange={({ currentTarget }) =>
-                    dispatch(updateSearchBar(currentTarget.value))
-                  }
-                />
-                <MDBBtn color="orange" className="search-btn">
-                  <MDBIcon icon="search" />
-                </MDBBtn>
-              </form>
-            </MDBNavItem>
-          </section>
         </MDBNavbarNav>
         <MDBNavbarNav right>
           {cartItems ? (
