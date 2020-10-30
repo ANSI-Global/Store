@@ -1,10 +1,11 @@
 type Warehouse @collection(name: "warehouses") {
   name: String!
-  address: Address!
+  address: Address
 }
 
 type Category @collection(name: "categories") {
   label: String!
+  subCategories: [Int]
 }
 
 type Product @collection(name: "products") {
@@ -23,8 +24,10 @@ type Product @collection(name: "products") {
 }
 
 type User @collection(name: "users") {
-  uid: ID!
-  address: Address
+  uid: Int!
+  phone: Address
+  shipAddress: Address
+  billAddress: Address
   role: String
   wishList: [Int]
   searchedItems: [String]
@@ -36,9 +39,11 @@ type Order @collection(name: "orders") {
   uid: Int!
   line: [ProductLine!]!
   status: String
-  creationDate: Int!
+  creationDate: Int
+  phone: String
   shipDate: Int
-  shipAddress: Address!
+  shipAddress: Address
+  billAddress: Address
   details: String
   deliveryMethod: String
   paymentMethod: String
@@ -50,28 +55,28 @@ type Media @collection(name: "media") {
 }
 
 type Reviews {
-  uid: String!
+  uid: Int!
   name: String
   image: String
-  time: String
+  time: Int
   stars: Int
   review: String
 }
 
 type Questions {
-  uid: String!
+  uid: Int!
   name: String
   image: String
-  time: String
+  time: Int
   question: String
   anwsers: [Anwsers]
 }
 
 type Anwsers {
-  uid: String!
+  uid: Int!
   name: String
   image: String
-  time: String
+  time: Int
   anwser: String
 }
 
@@ -81,9 +86,9 @@ type ImageCarousel @embedded {
 }
 
 type Address @embedded {
-  street: String!
+  street: String
   city: String
-  state: String!
+  state: String
   zipCode: Int
 }
 
@@ -91,17 +96,12 @@ type CustomerGroups {
   dateCreated: Int
   name: String
   description: String
-  customers: [Int]!
+  customers: [Int]
 }
 
 type ProductLine @embedded {
   productID: Int!
-  quantity: Int!
-}
-
-input SubmitOrderProductInput {
-  productId: ID!
-  quantity: Int!
+  quantity: Int
 }
 
 type Query {
@@ -112,5 +112,4 @@ type Query {
   allCustomers: [Customer!]! @index(name: "all_customers")
   allOrders: [Order!]! @index(name: "all_orders")
   allMedia: [Media!]! @index(name: "all_media")
-  allFeatured: [Featured!]! @index(name: "all_featured")
 }
