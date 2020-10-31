@@ -1,0 +1,50 @@
+.itemCard
+    width: 18rem
+
+.card-image
+    max-height: 18rem
+
+.qViewBtn, .addCartBtn
+    position: absolute
+    height: 2rem
+    width: 9rem
+    margin: 0rem
+    padding: 0rem
+
+.qViewBtn
+    left: 0rem
+
+.addCartBtn
+    right: 0rem
+
+.btn-hide, .heart-overlay
+    position: absolute
+    visibility: hidden
+    opacity: 0
+    transition: visibility 0s, opacity 0.5s linear
+
+.heart-overlay
+    transition: top 0.5s linear
+    top: -4rem
+
+.btn-hide
+    bottom: 5rem
+    transition: bottom 0.5s linear
+    background: #000
+    color: #fff
+
+.itemCard:hover
+    .heart-overlay, .btn-hide
+        visibility: visible
+        opacity: 1
+
+    .heart-overlay
+        top: 0rem
+        right: 0rem
+
+    .btn-hide
+        bottom: 8rem
+
+.scrollList
+    display: flex
+    overflow-x: scroll
