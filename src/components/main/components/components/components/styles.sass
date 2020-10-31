@@ -1,11 +1,13 @@
+// border-radius
+$br:  15px
+
 .nav-search
     display: flex
     height: 40px
-    width: 600px
-
-    border-radius: 5px
 
     .nav-left
+        border-radius: $br 0 0 $br
+
         .nav-search-facade
             position: relative
             cursor: pointer
@@ -14,14 +16,20 @@
             display: block
             position: absolute
             height: 35px
+            width: 40px
             top: 15px
             opacity: 0
+            visibility: visible
 
     .nav-fill
+        width: 40vw
 
-    .nav-right
+    .nav-btn
         margin: 0
         padding: 0
 
         height: 40px
         width: 40px
+
+    .nav-right
+        border-radius: 0 $br $br 0

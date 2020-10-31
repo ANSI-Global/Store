@@ -1,4 +1,4 @@
-import { MDBBtn, MDBIcon } from "mdbreact"
+import { MDBAnimation, MDBBtn, MDBIcon } from "mdbreact"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { updateSearchBar } from "../../../../state/globalReducer"
@@ -19,7 +19,7 @@ const SearchBar = () => {
     <form className="nav-search">
       <div className="nav-left">
         <div className="nav-search-facade">
-          <MDBBtn color="light" className="nav-right">
+          <MDBBtn color="light" className="nav-btn nav-left">
             All
             <MDBIcon icon="caret-down" />
           </MDBBtn>
@@ -39,8 +39,10 @@ const SearchBar = () => {
           dispatch(updateSearchBar(currentTarget.value))
         }
       />
-      <MDBBtn color="amber" className="nav-right">
-        <MDBIcon icon="search" css={{ color: "black" }} />
+      <MDBBtn color="amber" className="nav-btn nav-right">
+        <MDBAnimation type="pulse" infinite>
+          <MDBIcon icon="search" size="lg" css={{ color: "black" }} />
+        </MDBAnimation>
       </MDBBtn>
     </form>
   )
