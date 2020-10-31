@@ -2,52 +2,44 @@ import {
   MDBCarousel,
   MDBCarouselInner,
   MDBCarouselItem,
-  MDBContainer,
   MDBView,
 } from "mdbreact"
 import React from "react"
 
-const CarouselPage = () => (
-  <MDBContainer fluid>
-    <MDBCarousel
-      activeItem={1}
-      length={3}
-      showControls
-      showIndicators={false}
-      className="z-depth-1"
-      slide
-    >
-      <MDBCarouselInner>
-        <MDBCarouselItem itemId="1">
+const data = [
+  {
+    src: "https://mdbootstrap.com/img/Photos/Slides/img%20(45).jpg",
+    text: "First slide",
+  },
+  {
+    src: "https://mdbootstrap.com/img/Photos/Slides/img%20(45).jpg",
+    text: "First slide",
+  },
+  {
+    src: "https://mdbootstrap.com/img/Photos/Slides/img%20(45).jpg",
+    text: "First slide",
+  },
+]
+
+const Carousel = () => (
+  <MDBCarousel
+    activeItem={1}
+    length={3}
+    showControls
+    showIndicators={false}
+    className="z-depth-1"
+    slide
+  >
+    <MDBCarouselInner>
+      {data.map((item, index) => (
+        <MDBCarouselItem itemId={index}>
           <MDBView>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(45).jpg"
-              alt="First slide"
-            />
+            <img className="d-block w-100" src={item.src} alt={item.text} />
           </MDBView>
         </MDBCarouselItem>
-        <MDBCarouselItem itemId="2">
-          <MDBView>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(46).jpg"
-              alt="Second slide"
-            />
-          </MDBView>
-        </MDBCarouselItem>
-        <MDBCarouselItem itemId="3">
-          <MDBView>
-            <img
-              className="d-block w-100"
-              src="https://mdbootstrap.com/img/Photos/Slides/img%20(47).jpg"
-              alt="Third slide"
-            />
-          </MDBView>
-        </MDBCarouselItem>
-      </MDBCarouselInner>
-    </MDBCarousel>
-  </MDBContainer>
+      ))}
+    </MDBCarouselInner>
+  </MDBCarousel>
 )
 
-export default CarouselPage
+export default Carousel
