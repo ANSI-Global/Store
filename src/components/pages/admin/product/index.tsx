@@ -1,5 +1,5 @@
 import { Client, query as q } from "faunadb"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import {
   setCategoryID,
@@ -23,6 +23,7 @@ interface props {
 }
 
 const ProductTemplate = (props: props) => {
+  const [isError, setIsError] = useState(false)
   const { id } = props
 
   const dispatch = useDispatch()
@@ -35,38 +36,47 @@ const ProductTemplate = (props: props) => {
 
   useEffect(() => {
     ;(async () => {
-      if (id) {
-        const { data }: product = await client.query(
-          q.Get(q.Ref(ProductCol, id))
-        )
-        const {
-          name,
-          description,
-          categoryID,
-          price,
-          warehouse,
-          quantity,
-          enabled,
-          featured,
-          variants,
-          images,
-        } = data
-        dispatch(setID(id))
-        dispatch(setName(name))
-        dispatch(setDescription(description))
-        dispatch(setCategoryID(categoryID.toString()))
-        dispatch(setPrice(price.toString()))
-        dispatch(setWarehouse(warehouse.toString()))
-        dispatch(setQuantity(quantity.toString()))
-        dispatch(setEnabled(enabled))
-        dispatch(setFeatured(featured))
-        dispatch(setVariants(variants))
-        dispatch(setImages(images))
+      try {
+        if (id) {
+          const { data }: product = await client.query(
+            q.Get(q.Ref(ProductCol, id))
+          )
+          const {
+            name,
+            description,
+            categoryID,
+            price,
+            warehouse,
+            quantity,
+            enabled,
+            featured,
+            variants,
+            images,
+          } = data
+          dispatch(setID(id))
+          dispatch(setName(name))
+          dispatch(setDescription(description))
+          dispatch(setCategoryID(categoryID.toString()))
+          dispatch(setPrice(price.toString()))
+          dispatch(setWarehouse(warehouse.toString()))
+          dispatch(setQuantity(quantity.toString()))
+          dispatch(setEnabled(enabled))
+          dispatch(setFeatured(featured))
+          dispatch(setVariants(variants))
+          dispatch(setImages(images))
+        }
+      } catch (error) {
+        setIsError(true)
+        console.error(error)
       }
     })()
   }, [id])
 
-  return <Page />
+  if (!isError) {
+    return <Page />
+  } else {
+    return <p>Ooops Something went wrong!</p>
+  }
 }
 
 export default ProductTemplate
