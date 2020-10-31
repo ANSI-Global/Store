@@ -1,4 +1,3 @@
-import { compress } from "compress-tag"
 import parser from "html-react-parser"
 import {
   MDBCard,
@@ -44,11 +43,16 @@ const DescriptionCard = () => {
                 }
               />
               <MDBInput
-                type="text"
-                label="Description"
-                value={description}
+                type="textarea"
+                label="Description (You can enter HTML!)"
+                rows="5"
+                value={description.replace("<br />", "\r\n")}
                 onChange={({ currentTarget }) =>
-                  dispatch(setDescription(compress(currentTarget.value)))
+                  dispatch(
+                    setDescription(
+                      currentTarget.value.replace(/\r\n|\r|\n/g, "<br />")
+                    )
+                  )
                 }
               />
               <p className="red-text">Description display as,</p>

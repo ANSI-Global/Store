@@ -42,7 +42,7 @@ const UpdateCard = () => {
     return q.Ref(ProductCol, product)
   }
 
-  const parse = {
+  let parse = {
     name,
     description,
     categoryID: toInteger(categoryID),
@@ -62,6 +62,7 @@ const UpdateCard = () => {
         })
       )
       console.info("Product Added!")
+      alert("Product Added!")
     } catch (error) {
       console.error(error)
     }
@@ -75,6 +76,7 @@ const UpdateCard = () => {
         })
       )
       console.info("Product Updated!")
+      alert("Product Updated!")
     } catch (error) {
       console.error(error)
     }
