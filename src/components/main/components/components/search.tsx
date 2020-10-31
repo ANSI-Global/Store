@@ -16,27 +16,30 @@ const SearchBar = () => {
   const dispatch = useDispatch()
 
   return (
-    <form className="search-bar">
+    <form className="nav-search">
       <div className="nav-left">
-        <div className="select--facade">
-          <span>All</span> <MDBIcon icon="caret-down" />
+        <div className="nav-search-facade">
+          <MDBBtn color="light" className="nav-right">
+            All
+            <MDBIcon icon="caret-down" />
+          </MDBBtn>
         </div>
 
-        <select name="All" className="search-bar__select">
+        <select name="All" className="nav-search-dropdown">
           {departments.map((department, index) => (
             <option key={index}>{department}</option>
           ))}
         </select>
       </div>
       <input
-        className="form-control form-control-sm ml-3 w-75 search-bar__input"
+        className="nav-fill"
         type="text"
         value={searchBar}
         onChange={({ currentTarget }) =>
           dispatch(updateSearchBar(currentTarget.value))
         }
       />
-      <MDBBtn color="amber" className="search-bar__submit">
+      <MDBBtn color="amber" className="nav-right">
         <MDBIcon icon="search" css={{ color: "black" }} />
       </MDBBtn>
     </form>

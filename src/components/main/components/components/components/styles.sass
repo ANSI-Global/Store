@@ -1,36 +1,27 @@
-.search-bar
+.nav-search
     display: flex
-    height: 50px
-    width: 60vw
-
-.navbar-dropdown
-    max-height: 40px
-    max-width: 40px
-
-.nav-fill
-    display: flex
-    width: 60vw
-    border-radius: 2rem
-    &:hover
-        border-color: orange
-
-.search-bar__select
-    display: block
-    position: absolute
-    opacity: 0
-    top: .5px
-
-.select--facade
-    position: static
-    width: 20%
-
-.search-bar__submit
-    position: static
-    height: auto
-    width: 20%
-
-.search-bar__submit
-    margin: 0
-    padding: 0
     height: 40px
-    width: 40px
+    width: 600px
+
+    border-radius: 5px
+
+    .nav-left
+        .nav-search-facade
+            position: relative
+            cursor: pointer
+
+        .nav-search-dropdown
+            display: block
+            position: absolute
+            height: 35px
+            top: 15px
+            opacity: 0
+
+    .nav-fill
+
+    .nav-right
+        margin: 0
+        padding: 0
+
+        height: 40px
+        width: 40px
