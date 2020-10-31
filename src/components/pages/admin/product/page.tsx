@@ -6,12 +6,12 @@ import {
   MDBContainer,
   MDBRow,
 } from "mdbreact"
-import AdditionalCard from "./cards/additionalCard"
-import DescriptionCard from "./cards/descriptionCard"
-import ImageCard from "./cards/imageCard"
-import InventoryCard from "./cards/inventoryCard"
-import UpdateCard from "./cards/updateCard"
-import Table from "./variantTable"
+import AdditionalCard from "./components/cards/additionalCard"
+import DescriptionCard from "./components/cards/descriptionCard"
+import ImageCard from "./components/cards/imageCard"
+import InventoryCard from "./components/cards/inventoryCard"
+import UpdateCard from "./components/cards/updateCard"
+import Table from "./components/variantTable"
 
 interface props {
   path?: string

@@ -1,22 +1,19 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import PropTypes from "prop-types"
 import React from "react"
 import SideNav from "./components/adminSideNav"
+import "./components/styles.sass"
+import "./components/variables.sass"
 
-const Layout = ({ children }) => {
-  return (
-    <>
-      <SideNav />
-      <main>{children}</main>
-    </>
-  )
+interface props {
+  children: Node
 }
+
+const Layout = ({ children }: props) => (
+  <>
+    <SideNav />
+    <main className="bg-color">{children}</main>
+  </>
+)
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

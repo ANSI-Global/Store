@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import Card from "../home/components/item"
-import "./style.sass"
+import "./styles.sass"
 
 const List: FC = () => {
   return (

@@ -7,7 +7,6 @@ import {
   MDBSideNavNav,
 } from "mdbreact"
 import React, { useState } from "react"
-import "./style.sass"
 
 const SideNavPage = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,7 +15,7 @@ const SideNavPage = () => {
     <>
       <MDBNavbar color="light" dark>
         <MDBIcon icon="bars" size="2x" onClick={() => setIsOpen(!isOpen)} />
-        <Link to="/admin"> Home</Link>
+        <Link to="/admin">Home</Link>
       </MDBNavbar>
       <MDBContainer>
         <MDBSideNav

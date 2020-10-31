@@ -2,7 +2,7 @@ import { MDBBtn, MDBIcon } from "mdbreact"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { updateSearchBar } from "../../../../state/globalReducer"
-import "./style.sass"
+import "./styles.sass"
 
 interface state {
   cart: { items: [number] }

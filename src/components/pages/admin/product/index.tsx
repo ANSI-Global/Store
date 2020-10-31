@@ -1,6 +1,8 @@
 import { Client, query as q } from "faunadb"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
+import { product } from "./components/productTypes"
+import Page from "./page"
 import {
   setCategoryID,
   setDescription,
@@ -13,9 +15,7 @@ import {
   setQuantity,
   setVariants,
   setWarehouse,
-} from "./adminProductReducer"
-import Page from "./page"
-import { product } from "./productTypes"
+} from "./productReducer"
 
 interface props {
   path?: string

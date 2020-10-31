@@ -14,7 +14,7 @@ import {
 import React from "react"
 import { useDispatch } from "react-redux"
 import { addItem } from "../../../main/components/cartReducer"
-import "./style.sass"
+import "./styles.sass"
 
 interface props {
   id?: number

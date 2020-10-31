@@ -1,7 +1,7 @@
 import { MDBCol, MDBContainer, MDBIcon, MDBInput, MDBRow } from "mdbreact"
 import React, { FC } from "react"
 import { useSelector } from "react-redux"
-import "./style.sass"
+import "./styles.sass"
 
 interface state {
   products: {

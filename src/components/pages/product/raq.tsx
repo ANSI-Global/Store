@@ -2,7 +2,7 @@ import { MDBCol, MDBContainer, MDBRow } from "mdbreact"
 import React from "react"
 import QA from "./components/qa"
 import Reviews from "./components/reviews"
-import "./style.sass"
+import "./styles.sass"
 
 const Product = () => (
   <MDBContainer fluid>

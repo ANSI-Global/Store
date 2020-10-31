@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import { MDBMask, MDBView } from "mdbreact"
 import React from "react"
-import "./style.sass"
+import "./styles.sass"
 
 interface props {
   src: string

@@ -2,7 +2,7 @@ import { navigate } from "gatsby"
 import { MDBBtn } from "mdbreact"
 import React, { useEffect, useRef } from "react"
 import Item from "./item"
-import "./style.sass"
+import "./styles.sass"
 
 interface props {
   title: string

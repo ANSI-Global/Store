@@ -10,7 +10,7 @@ import {
 } from "mdbreact"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setCategoryID, setFeatured } from "../adminProductReducer"
+import { setCategoryID, setFeatured } from "../../productReducer"
 
 interface state {
   adminProduct: {

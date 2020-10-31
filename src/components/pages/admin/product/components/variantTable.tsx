@@ -1,7 +1,7 @@
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdbreact"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setVariants } from "./adminProductReducer"
+import { setVariants } from "../productReducer"
 
 interface state {
   adminProduct: {

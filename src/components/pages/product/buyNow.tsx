@@ -9,7 +9,7 @@ import {
   MDBRow,
 } from "mdbreact"
 import React, { FC } from "react"
-import "./style.sass"
+import "./styles.sass"
 
 const BuyNow: FC = () => {
   const onClick = num => {}

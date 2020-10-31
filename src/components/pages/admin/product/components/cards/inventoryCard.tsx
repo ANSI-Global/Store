@@ -6,7 +6,7 @@ import {
   MDBContainer,
   MDBInput,
   MDBRow,
-  MDBSwitch,
+  MDBSwitch
 } from "mdbreact"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -14,8 +14,8 @@ import {
   setEnabled,
   setPrice,
   setQuantity,
-  setWarehouse,
-} from "../adminProductReducer"
+  setWarehouse
+} from "../../productReducer"
 
 interface state {
   adminProduct: {

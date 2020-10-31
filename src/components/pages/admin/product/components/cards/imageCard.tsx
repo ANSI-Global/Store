@@ -11,8 +11,8 @@ import {
 } from "mdbreact"
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { addImages, removeImages } from "../adminProductReducer"
-import "./style.sass"
+import { addImages, removeImages } from "../../productReducer"
+import "./styles.sass"
 
 interface state {
   adminProduct: {

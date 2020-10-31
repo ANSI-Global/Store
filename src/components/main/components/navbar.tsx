@@ -1,3 +1,4 @@
+import { useLocation } from "@reach/router"
 import { Link } from "gatsby"
 import {
   MDBCollapse,
@@ -12,8 +13,8 @@ import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { updateNoItems } from "./cartReducer"
 import Search from "./components/search"
+import "./components/styles.sass"
 import UserIcon from "./components/userIcon"
-import "./style.sass"
 
 interface state {
   cart: { items: [number] }
@@ -27,7 +28,7 @@ const NavbarPage = () => {
   const { searchBar } = useSelector((state: state) => state.global)
   const { departments } = useSelector((state: state) => state.products)
   const dispatch = useDispatch()
-
+  const location = useLocation()
   return (
     <MDBNavbar color="info-color" expand="md" dark>
       <MDBNavbarBrand>
@@ -36,7 +37,7 @@ const NavbarPage = () => {
       <MDBNavbarToggler onClick={() => setCllapseID(!collapseID)} />
       <MDBCollapse id="navbarCollapse3" isOpen={collapseID} navbar>
         <MDBNavbarNav left>
-          <MDBNavItem active>
+          <MDBNavItem active={location.pathname == "/"}>
             <Link to="/" className="nav-link">
               Home
             </Link>
