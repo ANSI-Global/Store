@@ -2,7 +2,7 @@ import { MDBBtn, MDBIcon } from "mdbreact"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { updateSearchBar } from "../../../../state/globalReducer"
-import "./styles.sass"
+import "./components/styles.sass"
 
 interface state {
   cart: { items: [number] }
@@ -16,21 +16,27 @@ const SearchBar = () => {
   const dispatch = useDispatch()
 
   return (
-    <form className="form-inline mw-200 nav-link" id="searchBar">
-      <select name="All" id="searchSelect">
-        {departments.map((department, index) => (
-          <option key={index}>{department}</option>
-        ))}
-      </select>
+    <form className="search-bar">
+      <div className="nav-left">
+        <div className="select--facade">
+          <span>All</span> <MDBIcon icon="caret-down" />
+        </div>
+
+        <select name="All" className="search-bar__select">
+          {departments.map((department, index) => (
+            <option key={index}>{department}</option>
+          ))}
+        </select>
+      </div>
       <input
-        className="form-control form-control-sm ml-3 w-75 search-bar"
+        className="form-control form-control-sm ml-3 w-75 search-bar__input"
         type="text"
         value={searchBar}
         onChange={({ currentTarget }) =>
           dispatch(updateSearchBar(currentTarget.value))
         }
       />
-      <MDBBtn color="amber" className="search-btn">
+      <MDBBtn color="amber" className="search-bar__submit">
         <MDBIcon icon="search" css={{ color: "black" }} />
       </MDBBtn>
     </form>

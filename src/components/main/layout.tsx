@@ -10,11 +10,11 @@ interface props {
 }
 
 const Layout: FC<props> = ({ children }: props) => (
-  <>
+  <section className="bg-color">
     <NavBar />
-    <main className="bg-color">{children}</main>
+    {children}
     <Footer />
-  </>
+  </section>
 )
 
 Layout.propTypes = {

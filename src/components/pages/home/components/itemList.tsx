@@ -39,7 +39,7 @@ const ItemList = (props: props) => {
       >
         <h4 className="white-text">{title}</h4>
       </MDBBtn>
-      <div ref={scrollBar} className="scrollList my-4">
+      <div ref={scrollBar} className="scrollList mt-5">
         {data &&
           data.map((item, index) => (
             <Item

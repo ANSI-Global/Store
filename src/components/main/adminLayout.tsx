@@ -9,10 +9,10 @@ interface props {
 }
 
 const Layout = ({ children }: props) => (
-  <>
+  <section className="bg-color">
     <SideNav />
-    <main className="bg-color">{children}</main>
-  </>
+    {children}
+  </section>
 )
 
 Layout.propTypes = {

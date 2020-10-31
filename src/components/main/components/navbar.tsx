@@ -29,6 +29,10 @@ const NavbarPage = () => {
   const { departments } = useSelector((state: state) => state.products)
   const dispatch = useDispatch()
   const location = useLocation()
+  const links = [
+    { text: "Home", link: "/" },
+    { text: "Products", link: "/products" },
+  ]
   return (
     <MDBNavbar color="info-color" expand="md" dark>
       <MDBNavbarBrand>
@@ -37,17 +41,13 @@ const NavbarPage = () => {
       <MDBNavbarToggler onClick={() => setCllapseID(!collapseID)} />
       <MDBCollapse id="navbarCollapse3" isOpen={collapseID} navbar>
         <MDBNavbarNav left>
-          <MDBNavItem active={location.pathname == "/"}>
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </MDBNavItem>
-          <MDBNavItem>
-            <Link to="/products" className="nav-link">
-              Products
-            </Link>
-          </MDBNavItem>
-          <MDBNavItem></MDBNavItem>
+          {links.map((link, index) => (
+            <MDBNavItem key={index} active={location.pathname == link.link}>
+              <Link to={link.link} className="nav-link">
+                {link.text}
+              </Link>
+            </MDBNavItem>
+          ))}
           <MDBNavItem>
             <Search />
           </MDBNavItem>
