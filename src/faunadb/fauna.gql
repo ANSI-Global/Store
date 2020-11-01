@@ -1,14 +1,17 @@
 type Warehouse @collection(name: "warehouses") {
+  id: ID!
   name: String!
   address: Address
 }
 
 type Category @collection(name: "categories") {
+  id: ID!
   label: String!
   subCategories: [Int]
 }
 
 type Product @collection(name: "products") {
+  id: ID!
   name: String!
   description: String
   categoryID: Int
@@ -24,6 +27,7 @@ type Product @collection(name: "products") {
 }
 
 type User @collection(name: "users") {
+  id: ID!
   uid: Int!
   phone: Int
   shipAddress: Address
@@ -36,6 +40,7 @@ type User @collection(name: "users") {
 }
 
 type Order @collection(name: "orders") {
+  id: ID!
   uid: Int!
   line: [ProductLine!]!
   status: String

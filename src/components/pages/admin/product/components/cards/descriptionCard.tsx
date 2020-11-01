@@ -46,14 +46,10 @@ const DescriptionCard = () => {
                 type="textarea"
                 label="Description (You can enter HTML!)"
                 rows="5"
-                value={description.replace("<br />", "\r\n")}
-                onChange={({ currentTarget }) =>
-                  dispatch(
-                    setDescription(
-                      currentTarget.value.replace(/\r\n|\r|\n/g, "<br />")
-                    )
-                  )
-                }
+                value={description}
+                onChange={({ currentTarget }) => {
+                  dispatch(setDescription(currentTarget.value))
+                }}
               />
               <p className="red-text">Description display as,</p>
               {parser(description)}

@@ -55,7 +55,7 @@ const ProductTemplate = (props: props) => {
           } = data
           dispatch(setID(id))
           dispatch(setName(name))
-          dispatch(setDescription(description))
+          dispatch(setDescription(description.replace("<br />", "\r\n")))
           dispatch(setCategoryID(categoryID.toString()))
           dispatch(setPrice(price.toString()))
           dispatch(setWarehouse(warehouse.toString()))

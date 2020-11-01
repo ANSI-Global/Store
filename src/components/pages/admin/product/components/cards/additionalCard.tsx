@@ -42,7 +42,7 @@ const AdditionalCard = () => {
                   dispatch(setCategoryID(currentTarget.value))
                 }
               />
-              <MDBInput type="Labels" label="Description" value="<p>Cat</p>" />
+              <MDBInput type="Labels" label="SubCategory" value="<p>Cat</p>" />
               IsFeatured:{" "}
               <MDBSwitch
                 checked={featured}
