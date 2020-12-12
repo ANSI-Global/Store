@@ -27,7 +27,7 @@
     "gatsby-theme-firebase": "^1.0.10",
     "gatsby-transformer-sharp": "^2.8.0",
     "google-maps-react": "^2.0.6",
-    "html-react-parser": "^0.14.2",
+    "html-react-parser": "^0.14.3",
     "lodash": "^4.17.20",
     "mdbreact": "./src/components/mdbr.tgz",
     "node-sass": "^4.14.1",
