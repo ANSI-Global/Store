@@ -30,7 +30,7 @@
     "html-react-parser": "^1.1.0",
     "lodash": "^4.17.20",
     "mdbreact": "./src/components/mdbr.tgz",
-    "node-sass": "^4.14.1",
+    "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-apollo": "^3.1.5",
