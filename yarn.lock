@@ -12890,10 +12890,10 @@ react-numeric-input@2.2.3:
   resolved "https://registry.yarnpkg.com/react-numeric-input/-/react-numeric-input-2.2.3.tgz#4bf5918c3eafed851a80df1eb992d941002bb552"
   integrity sha1-S/WRjD6v7YUagN8euZLZQQArtVI=
 
-react-paypal-button-v2@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/react-paypal-button-v2/-/react-paypal-button-v2-2.6.2.tgz#6827b3d16609a44c7a41a69cda223b2da96beaed"
-  integrity sha512-+IgmfbKRdlfopX8YHfPcCrbuQnaA4mCRPQV3VbFXVHDOEiEHvROJ8arQc/JTa1ppRc95u/SweKeVRK1c65JWqA==
+react-paypal-button-v2@^2.6.3:
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/react-paypal-button-v2/-/react-paypal-button-v2-2.6.3.tgz#9f037317d9f836b34b9cdbf1830d46d85392a47a"
+  integrity sha512-Kt0QxWjZn+RnIbbFPHDfH8iHwMqe/jG5+SkKElEJ0Fg+CM9yeK37y8zQW97l5C9P9D1yPacW5YNAnuxmI9uS9w==
   dependencies:
     prop-types "^15.7.2"
     rimraf "^3.0.0"
