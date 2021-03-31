@@ -25,7 +25,7 @@
     "gatsby-source-filesystem": "^3.2.0",
     "gatsby-source-graphql": "^3.2.0",
     "gatsby-theme-firebase": "^1.0.10",
-    "gatsby-transformer-sharp": "^3.1.0",
+    "gatsby-transformer-sharp": "^3.2.0",
     "google-maps-react": "^2.0.6",
     "html-react-parser": "^1.2.4",
     "lodash": "^4.17.21",
