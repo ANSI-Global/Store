@@ -9,7 +9,7 @@
     "apollo-boost": "^0.4.9",
     "compress-tag": "^2.0.0",
     "faunadb": "^4.2.0",
-    "gatsby": "^3.4.2",
+    "gatsby": "^3.5.0",
     "gatsby-image": "^3.5.0",
     "gatsby-plugin-create-client-paths": "^3.5.0",
     "gatsby-plugin-google-analytics": "^3.5.0",
