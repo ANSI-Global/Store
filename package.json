@@ -11,7 +11,7 @@
     "faunadb": "^4.3.0",
     "gatsby": "^3.5.1",
     "gatsby-image": "^3.5.0",
-    "gatsby-plugin-create-client-paths": "^3.5.0",
+    "gatsby-plugin-create-client-paths": "^3.6.0",
     "gatsby-plugin-google-analytics": "^3.6.0",
     "gatsby-plugin-manifest": "^3.5.0",
     "gatsby-plugin-nprogress": "^3.6.0",
