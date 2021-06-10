@@ -13,7 +13,7 @@
     "gatsby-image": "^3.7.1",
     "gatsby-plugin-create-client-paths": "^3.7.1",
     "gatsby-plugin-google-analytics": "^3.7.1",
-    "gatsby-plugin-manifest": "^3.7.0",
+    "gatsby-plugin-manifest": "^3.7.1",
     "gatsby-plugin-nprogress": "^3.7.1",
     "gatsby-plugin-offline": "^4.7.1",
     "gatsby-plugin-react-helmet": "^4.7.1",
