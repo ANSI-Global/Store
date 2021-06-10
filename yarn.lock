@@ -7446,7 +7446,7 @@ gatsby-cli@^3.7.0:
     yoga-layout-prebuilt "^1.9.6"
     yurnalist "^2.1.0"
 
-gatsby-core-utils@^2.6.0, gatsby-core-utils@^2.7.0:
+gatsby-core-utils@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-2.7.0.tgz#b73a152920c8459af35412c49f9ec0df67c70fe6"
   integrity sha512-0yma1pr5bNAR4rnd4E+3sct+Fr+wjfWoz5dRQCE5Swb1vZ1b6l7QW4KxTPQhwNgbI+tgYakJhp+pgxPLFpXxHA==
@@ -7506,10 +7506,10 @@ gatsby-page-utils@^1.7.0:
     lodash "^4.17.21"
     micromatch "^4.0.2"
 
-gatsby-plugin-create-client-paths@^3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-3.7.0.tgz#beb0b65a0dd336ad97a5c9d3ba008ce1b21ac61c"
-  integrity sha512-84QjrqzhfzEfLDd0PkzxrtgWY2NmPMZKxjxv8kaUKM6UaaETP+SO143S2gH8hn7xbzyFPK2Mwj4hU0kvXdulLg==
+gatsby-plugin-create-client-paths@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-3.7.1.tgz#8ed2641ff6011f3f451381e86056d2ef849c704b"
+  integrity sha512-+1LBAXBb8/IiTptOwfQpLE0Lw1IXYHZ0uThRj24KLzSffPbCESsvfHZfpc355y6DGmuqrBg6aElH+oEf+wQ9Gw==
   dependencies:
     "@babel/runtime" "^7.14.0"
 
