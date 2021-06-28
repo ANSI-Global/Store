@@ -7625,10 +7625,10 @@ gatsby-plugin-react-redux@^1.1.0:
   dependencies:
     serialize-javascript "^5.0.1"
 
-gatsby-plugin-robots-txt@^1.6.7:
-  version "1.6.7"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-robots-txt/-/gatsby-plugin-robots-txt-1.6.7.tgz#32fba99e8753786551b4f4ddbf23578c146e85e6"
-  integrity sha512-x3v8rgIRJlVeOElBW1xFsxnKQ0CId9A8OPTX28YvsXfWtSuJxGewP7vTjdxse+23YDR5IGATBPICe3ZSWb8zZQ==
+gatsby-plugin-robots-txt@^1.6.8:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-robots-txt/-/gatsby-plugin-robots-txt-1.6.8.tgz#28968ca767ac4e45bf71b18eb1d363abb55aa6cd"
+  integrity sha512-Lw/r+gBbjvCiVnqJaO24aBUFO0VMZMHgKupy/LLzxxVE8OuEbTpwUv2aYZvtOZIXnKJfdbf/Znu43t7qAp5sdw==
   dependencies:
     "@babel/runtime" "^7.14.0"
     generate-robotstxt "^8.0.3"
