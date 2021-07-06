@@ -12,7 +12,7 @@
     "gatsby": "^3.8.1",
     "gatsby-image": "^3.9.0",
     "gatsby-plugin-create-client-paths": "^3.8.0",
-    "gatsby-plugin-google-analytics": "^3.8.0",
+    "gatsby-plugin-google-analytics": "^3.9.0",
     "gatsby-plugin-manifest": "^3.8.0",
     "gatsby-plugin-nprogress": "^3.8.0",
     "gatsby-plugin-offline": "^4.8.0",
