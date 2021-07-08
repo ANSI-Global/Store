@@ -2905,10 +2905,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-image-magnifiers@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@types/react-image-magnifiers/-/react-image-magnifiers-1.3.0.tgz#9e9c945d67e9c723336ff348c8fcffbc75ee0e7d"
-  integrity sha512-r6u7VTZz9V9zULzzwDIJdMKu2wJ3eJaGkCwsn9rcQg68MwaxfcAXI3jaiJx8eU1yYwZTNBw07AJAa73y8S5nkw==
+"@types/react-image-magnifiers@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@types/react-image-magnifiers/-/react-image-magnifiers-1.3.1.tgz#b508772c0c8a08210ac31ad1d4d138ac18f71d7d"
+  integrity sha512-u12LVpb27MMsuIZiHu9EpmzQaYTxXdXcrZct51gcSUFqD0DVNvRK3Fd+wpOjuuPBDFsLtuU1KHubB+OSwRY0HQ==
   dependencies:
     "@types/react" "*"
 
