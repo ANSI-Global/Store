@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Himadu Sirimanna <himadusirimanna.1@gmail.com>",
   "dependencies": {
-    "@reduxjs/toolkit": "^1.6.0",
+    "@reduxjs/toolkit": "^1.6.1",
     "apollo-boost": "^0.4.9",
     "compress-tag": "^2.0.0",
     "faunadb": "^4.3.0",
